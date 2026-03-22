@@ -2,6 +2,7 @@ const gameModes = [
   {
     name: "Fallacy Flash",
     icon: "⚡",
+    href: "/play/fallacy-flash",
     description:
       "Rapid fallacy identification — the core drill. Read a short argument, spot the logical error. Progresses from multiple choice to free-text identification as you advance.",
     features: [
@@ -13,6 +14,7 @@ const gameModes = [
   {
     name: "Steel Man",
     icon: "🛡",
+    href: "/play/steelman",
     description:
       "Construct the strongest version of an argument you disagree with. The single most important skill for democratic discourse.",
     features: [
@@ -69,31 +71,43 @@ export default function GameModes() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {gameModes.map((mode) => (
-            <div
-              key={mode.name}
-              className="bg-dojo-card border border-dojo-border rounded-xl p-6 hover:border-dojo-accent/40 transition-colors"
-            >
-              <div className="text-3xl mb-4">{mode.icon}</div>
-              <h3 className="text-xl font-semibold mb-3 text-dojo-text">
-                {mode.name}
-              </h3>
-              <p className="text-dojo-muted text-sm leading-relaxed mb-4">
-                {mode.description}
-              </p>
-              <ul className="space-y-2">
-                {mode.features.map((f) => (
-                  <li
-                    key={f}
-                    className="text-xs text-dojo-muted/80 flex items-start gap-2"
-                  >
-                    <span className="text-dojo-accent mt-0.5">&#x25B8;</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {gameModes.map((mode) => {
+            const content = (
+              <>
+                <div className="text-3xl mb-4">{mode.icon}</div>
+                <h3 className="text-xl font-semibold mb-3 text-dojo-text">
+                  {mode.name}
+                </h3>
+                <p className="text-dojo-muted text-sm leading-relaxed mb-4">
+                  {mode.description}
+                </p>
+                <ul className="space-y-2">
+                  {mode.features.map((f) => (
+                    <li
+                      key={f}
+                      className="text-xs text-dojo-muted/80 flex items-start gap-2"
+                    >
+                      <span className="text-dojo-accent mt-0.5">&#x25B8;</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            );
+
+            const classes =
+              "bg-dojo-card border border-dojo-border rounded-xl p-6 hover:border-dojo-accent/40 transition-colors";
+
+            return mode.href ? (
+              <a key={mode.name} href={mode.href} className={classes + " block"}>
+                {content}
+              </a>
+            ) : (
+              <div key={mode.name} className={classes}>
+                {content}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
