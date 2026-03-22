@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dojo
 
-## Getting Started
+**Train your mind like a martial art.**
 
-First, run the development server:
+Dojo is a critical thinking trainer — the second app in the [Brain Mastery](https://humanityandai.com/products/) series by Humanity & AI. Four game modes teach you to spot fallacies, steel-man arguments, evaluate sources, and analyze daily news. Earn belts from White to Black as your reasoning sharpens.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Game Modes
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Fallacy Flash** — identify logical fallacies in real-time arguments
+- **Steel Man** — rewrite weak arguments as their strongest possible version (AI-evaluated)
+- **Source Check** — evaluate news credibility, identify bias, know what to verify
+- **Daily Brief** — three news summaries, one flawed, one missing context, one solid. Find them.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Belt Progression
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+White → Yellow → Green → Blue → Purple → Black. XP earned across all modes. Your profile tracks accuracy, streaks, and growth over time.
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+Next.js 14 · TypeScript · Tailwind CSS · Anthropic Haiku API · Dark warm aesthetic
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Part of Brain Mastery
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Clarity (read) → **Dojo (think)** → TasteBud (taste) → Quiltographer (create) → Citizen (participate)
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+MIT — see [LICENSE](LICENSE)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+Built by [Humanity & AI, LLC](https://humanityandai.com) · Oklahoma City
