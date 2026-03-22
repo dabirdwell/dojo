@@ -6,6 +6,8 @@ import {
   categoryLabels,
   type SteelManScenario,
 } from "@/data/steelman-scenarios";
+import { awardXP } from "@/lib/progress";
+import BeltBadge from "@/components/belt-badge/BeltBadge";
 
 type GamePhase = "select" | "write" | "evaluating" | "result";
 
@@ -90,6 +92,10 @@ export default function SteelManGame() {
       setEvaluation(data);
       setCompletedIds((prev) => new Set(prev).add(scenario.id));
       setSessionScores((prev) => [...prev, data]);
+      const total = data.charity + data.strength + data.concerns;
+      const xp = 30 + (total >= 12 ? 15 : 0);
+      const goodEval = total >= 9 ? 1 : 0;
+      awardXP("steelman", xp, goodEval, 1);
       setPhase("result");
     } catch {
       setError("Could not evaluate your response. Please try again.");
@@ -135,7 +141,7 @@ export default function SteelManGame() {
             >
               ← Back
             </a>
-            <div className="text-sm font-mono text-dojo-accent">Steel Man</div>
+            <BeltBadge />
           </div>
         </div>
 
@@ -231,7 +237,7 @@ export default function SteelManGame() {
             >
               ← Scenarios
             </button>
-            <div className="text-sm font-mono text-dojo-accent">Steel Man</div>
+            <BeltBadge />
           </div>
         </div>
 

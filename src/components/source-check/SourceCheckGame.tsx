@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import { sourceScenarios, type SourceScenario } from "@/data/source-scenarios";
+import { awardXP } from "@/lib/progress";
+import BeltBadge from "@/components/belt-badge/BeltBadge";
 
 interface FeedbackItem {
   category: string;
@@ -117,6 +119,18 @@ export default function SourceCheckGame() {
     [results]
   );
 
+  const [xpAwarded, setXpAwarded] = useState(false);
+
+  useEffect(() => {
+    if (finished && !xpAwarded) {
+      const correctCount = results.filter(
+        (r) => r.evaluation.totalScore / r.evaluation.maxScore >= 0.6
+      ).length;
+      awardXP("source-check", totalXP, correctCount, results.length);
+      setXpAwarded(true);
+    }
+  }, [finished, xpAwarded, totalXP, results]);
+
   // --- RESULTS SCREEN ---
   if (finished) {
     const totalScore = results.reduce((s, r) => s + r.evaluation.totalScore, 0);
@@ -213,7 +227,7 @@ export default function SourceCheckGame() {
           <div className="text-sm text-dojo-muted">
             {currentIndex + 1} / {scenarios.length}
           </div>
-          <div className="text-sm font-mono text-dojo-accent">Source Check</div>
+          <BeltBadge />
         </div>
         <div className="max-w-2xl mx-auto mt-3">
           <div className="h-1 bg-dojo-card rounded-full overflow-hidden">

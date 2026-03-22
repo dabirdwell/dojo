@@ -5,6 +5,8 @@ import {
   dailyChallenges,
   type DailyChallenge,
 } from "@/data/daily-brief-scenarios";
+import { awardXP } from "@/lib/progress";
+import BeltBadge from "@/components/belt-badge/BeltBadge";
 
 type PlayerLabel = "logical-error" | "missing-context" | "solid";
 
@@ -164,6 +166,9 @@ export default function DailyBriefGame() {
       };
       saveStreakData(newStreak);
       setStreak(newStreak);
+
+      const xp = correct === 3 ? 25 : correct * 8;
+      awardXP("daily-brief", xp, correct, 3);
     }
   }, [challenge, labels]);
 
@@ -245,6 +250,7 @@ export default function DailyBriefGame() {
             <span className="text-xs font-medium text-dojo-accent bg-dojo-accent/10 px-2 py-1 rounded">
               Day {challenge.day}
             </span>
+            <BeltBadge />
           </div>
         </div>
 

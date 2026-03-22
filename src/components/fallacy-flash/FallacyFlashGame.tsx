@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import { fallacies, type FallacyExample } from "@/data/fallacies";
+import { awardXP } from "@/lib/progress";
+import BeltBadge from "@/components/belt-badge/BeltBadge";
 
 interface QuestionState {
   fallacy: (typeof fallacies)[number];
@@ -71,6 +73,16 @@ export default function FallacyFlashGame() {
       ),
     [questions, answers]
   );
+
+  const [xpAwarded, setXpAwarded] = useState(false);
+
+  useEffect(() => {
+    if (finished && !xpAwarded) {
+      const xp = score * 10 + (score >= 5 ? 25 : 0);
+      awardXP("fallacy-flash", xp, score, questions.length);
+      setXpAwarded(true);
+    }
+  }, [finished, xpAwarded, score, questions.length]);
 
   if (finished) {
     const xp = score * 10 + (score >= 5 ? 25 : 0);
@@ -149,9 +161,7 @@ export default function FallacyFlashGame() {
           <div className="text-sm text-dojo-muted">
             {currentIndex + 1} / {questions.length}
           </div>
-          <div className="text-sm font-mono text-dojo-accent">
-            White Belt
-          </div>
+          <BeltBadge />
         </div>
         {/* Progress bar */}
         <div className="max-w-2xl mx-auto mt-3">
