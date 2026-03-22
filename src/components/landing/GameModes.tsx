@@ -49,12 +49,13 @@ const gameModes = [
   {
     name: "Daily Brief",
     icon: "📰",
+    href: "/play/daily-brief",
     description:
-      "Apply critical thinking to current events. Curated daily summaries where you identify claims, evaluate sources, and spot fallacies in real-world reporting.",
+      "Daily challenge: three news summaries — one has a logical error, one is missing context, one is solid. Identify which is which and explain why.",
     features: [
-      "1-3 curated items daily",
-      "Bipartisan source selection",
-      "Human-verified accuracy",
+      "New challenge every day",
+      "Streak tracking",
+      "Pre-built scenarios — no API needed",
     ],
   },
 ];

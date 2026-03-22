@@ -2,11 +2,19 @@ import Hero from "@/components/landing/Hero";
 import GameModes from "@/components/landing/GameModes";
 import BeltProgression from "@/components/landing/BeltProgression";
 import PricingTable from "@/components/landing/PricingTable";
+import DailyBriefCard from "@/components/landing/DailyBriefCard";
 
 export default function Home() {
   return (
     <main>
       <Hero />
+
+      {/* Daily Challenge */}
+      <section className="py-12 px-6">
+        <div className="max-w-2xl mx-auto">
+          <DailyBriefCard />
+        </div>
+      </section>
 
       <div className="h-px bg-gradient-to-r from-transparent via-dojo-border to-transparent" />
       <GameModes />
