@@ -26,6 +26,7 @@ const gameModes = [
   {
     name: "Source Check",
     icon: "🔍",
+    href: "/play/source-check",
     description:
       "Evaluate claims paired with citations for reliability. Learn the evidence hierarchy from meta-analyses down to anonymous social media posts.",
     features: [
