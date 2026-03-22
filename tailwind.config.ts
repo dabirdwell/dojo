@@ -9,8 +9,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        dojo: {
+          bg: "#1a1210",
+          surface: "#241c18",
+          card: "#2e241e",
+          text: "#f0e6d6",
+          muted: "#b8a994",
+          accent: "#c0392b",
+          "accent-hover": "#e74c3c",
+          border: "#3d3028",
+        },
+        belt: {
+          white: "#E8E8E8",
+          yellow: "#F5D442",
+          green: "#4CAF50",
+          blue: "#2196F3",
+          brown: "#8D6E63",
+          black: "#1A1A1A",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
       },
     },
   },
