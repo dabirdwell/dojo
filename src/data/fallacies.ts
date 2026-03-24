@@ -500,6 +500,336 @@ export const fallacies: Fallacy[] = [
       },
     ],
   },
+  {
+    id: "whataboutism",
+    name: "Whataboutism",
+    aliases: ["Appeal to Hypocrisy", "Two Wrongs Make a Right"],
+    definition:
+      "Deflecting criticism by pointing to someone else's wrongdoing instead of addressing the original issue.",
+    belt: "green",
+    examples: [
+      {
+        argument:
+          "Why are you criticizing our country's human rights record? What about the way the U.S. treats immigrants at its border?",
+        correctAnswer: "Whataboutism",
+        options: [
+          "Red Herring",
+          "Whataboutism",
+          "Ad Hominem",
+          "False Dilemma",
+        ],
+        explanation:
+          "Pointing to another country's failings does not address or justify the original human rights criticism.",
+      },
+      {
+        argument:
+          "Sure, the oil company caused a massive spill, but what about all the pollution from electric vehicle battery production?",
+        correctAnswer: "Whataboutism",
+        options: [
+          "Whataboutism",
+          "Straw Man",
+          "Appeal to Emotion",
+          "Hasty Generalization",
+        ],
+        explanation:
+          "EV battery concerns, however valid, do not excuse or address the specific oil spill under discussion.",
+      },
+      {
+        argument:
+          "People complain about misinformation on Twitter, but what about all the biased reporting from mainstream media?",
+        correctAnswer: "Whataboutism",
+        options: [
+          "Bandwagon",
+          "False Dilemma",
+          "Whataboutism",
+          "Circular Reasoning",
+        ],
+        explanation:
+          "Media bias is a separate issue that does not resolve concerns about misinformation on social platforms.",
+      },
+      {
+        argument:
+          "You're upset that I didn't vote? What about the millions of people who voted for a corrupt candidate — that's way worse.",
+        correctAnswer: "Whataboutism",
+        options: [
+          "Appeal to Emotion",
+          "Whataboutism",
+          "Slippery Slope",
+          "Tu Quoque",
+        ],
+        explanation:
+          "Other voters' choices do not address the original criticism about failing to participate in the election.",
+      },
+    ],
+  },
+  {
+    id: "tu_quoque",
+    name: "Tu Quoque",
+    aliases: ["Appeal to Hypocrisy", "You Too Fallacy"],
+    definition:
+      "Dismissing someone's argument by accusing them of acting inconsistently with their own claim, rather than addressing the argument itself.",
+    belt: "green",
+    examples: [
+      {
+        argument:
+          "My doctor told me to stop smoking, but I've seen her smoke outside the hospital. Why should I listen to her advice?",
+        correctAnswer: "Tu Quoque",
+        options: [
+          "Ad Hominem",
+          "Tu Quoque",
+          "Red Herring",
+          "Appeal to Authority",
+        ],
+        explanation:
+          "The doctor's personal habit does not invalidate the medical evidence that smoking is harmful.",
+      },
+      {
+        argument:
+          "The climate activist flew on a private jet to the summit, so their argument about reducing carbon emissions is worthless.",
+        correctAnswer: "Tu Quoque",
+        options: [
+          "Hasty Generalization",
+          "Whataboutism",
+          "Tu Quoque",
+          "Straw Man",
+        ],
+        explanation:
+          "The activist's personal carbon footprint does not refute the scientific case for reducing emissions.",
+      },
+      {
+        argument:
+          "You're telling me to budget my money? You went bankrupt two years ago! I don't need your financial advice.",
+        correctAnswer: "Tu Quoque",
+        options: [
+          "Tu Quoque",
+          "Appeal to Emotion",
+          "Bandwagon",
+          "False Dilemma",
+        ],
+        explanation:
+          "A person's past financial mistakes do not make their current budgeting advice logically incorrect.",
+      },
+    ],
+  },
+  {
+    id: "false_cause",
+    name: "False Cause",
+    aliases: ["Post Hoc", "Correlation vs. Causation", "Non Causa Pro Causa"],
+    definition:
+      "Assuming that because two things are correlated or one followed the other, one must have caused the other.",
+    belt: "blue",
+    examples: [
+      {
+        argument:
+          "Ever since they put up 5G towers in our neighborhood, more people have been getting headaches. The towers are clearly causing health problems.",
+        correctAnswer: "False Cause",
+        options: [
+          "Slippery Slope",
+          "False Cause",
+          "Hasty Generalization",
+          "Appeal to Emotion",
+        ],
+        explanation:
+          "The timing of the towers and the headaches may be coincidental — correlation alone does not prove causation.",
+      },
+      {
+        argument:
+          "Our company started using a new project management tool last quarter, and revenue went up 15%. The tool is driving our growth.",
+        correctAnswer: "False Cause",
+        options: [
+          "Appeal to Authority",
+          "Bandwagon",
+          "False Cause",
+          "Circular Reasoning",
+        ],
+        explanation:
+          "Revenue growth could be caused by many factors; the new tool's adoption happening first does not prove it caused the increase.",
+      },
+      {
+        argument:
+          "Crime rates dropped after the city installed more streetlights, proving that better lighting prevents crime.",
+        correctAnswer: "False Cause",
+        options: [
+          "False Cause",
+          "Red Herring",
+          "False Dilemma",
+          "Straw Man",
+        ],
+        explanation:
+          "The drop in crime could be due to other factors like seasonal changes, policing, or economic shifts — the streetlights alone are not proven causal.",
+      },
+    ],
+  },
+  {
+    id: "appeal_to_nature",
+    name: "Appeal to Nature",
+    aliases: ["Naturalistic Fallacy", "Natural is Better"],
+    definition:
+      "Arguing that something is good because it is natural, or bad because it is unnatural.",
+    belt: "blue",
+    examples: [
+      {
+        argument:
+          "I only give my kids natural herbal remedies — chemicals from pharmaceutical companies can't be good for you because they're artificial.",
+        correctAnswer: "Appeal to Nature",
+        options: [
+          "Appeal to Emotion",
+          "Appeal to Nature",
+          "False Dilemma",
+          "Hasty Generalization",
+        ],
+        explanation:
+          "Whether a substance is natural or synthetic says nothing about its safety or efficacy — arsenic is natural and aspirin is synthetic.",
+      },
+      {
+        argument:
+          "Organic food is always healthier than conventionally grown food because it's produced the way nature intended.",
+        correctAnswer: "Appeal to Nature",
+        options: [
+          "Bandwagon",
+          "Appeal to Authority",
+          "Appeal to Nature",
+          "Circular Reasoning",
+        ],
+        explanation:
+          "The label 'organic' does not automatically guarantee superior health outcomes — naturalness is not a reliable measure of nutritional value.",
+      },
+      {
+        argument:
+          "Humans aren't meant to stare at screens all day — it's unnatural, and that's why it's bad for mental health.",
+        correctAnswer: "Appeal to Nature",
+        options: [
+          "Slippery Slope",
+          "False Cause",
+          "Appeal to Nature",
+          "Red Herring",
+        ],
+        explanation:
+          "Something being evolutionarily novel does not automatically make it harmful — the health effects of screens require evidence, not appeals to what is 'natural.'",
+      },
+    ],
+  },
+  {
+    id: "equivocation",
+    name: "Equivocation",
+    aliases: ["Ambiguity", "Double Meaning"],
+    definition:
+      "Using a word with multiple meanings in different parts of an argument, making the conclusion misleading.",
+    belt: "blue",
+    examples: [
+      {
+        argument:
+          "The sign says 'fine for parking here,' so it must be perfectly fine to park in this spot.",
+        correctAnswer: "Equivocation",
+        options: [
+          "Circular Reasoning",
+          "Equivocation",
+          "Straw Man",
+          "Red Herring",
+        ],
+        explanation:
+          "The word 'fine' is used as a noun (a monetary penalty) on the sign but interpreted as an adjective (acceptable) in the conclusion.",
+      },
+      {
+        argument:
+          "Scientists say we should question everything. I'm questioning the science on vaccines. So I'm doing exactly what scientists recommend.",
+        correctAnswer: "Equivocation",
+        options: [
+          "Equivocation",
+          "Appeal to Authority",
+          "Tu Quoque",
+          "Bandwagon",
+        ],
+        explanation:
+          "The word 'question' shifts from rigorous peer-reviewed inquiry to casual personal skepticism, which are fundamentally different activities.",
+      },
+      {
+        argument:
+          "The Constitution protects our right to bear arms. A nuclear weapon is a type of arm. Therefore, the Constitution protects my right to own nuclear weapons.",
+        correctAnswer: "Equivocation",
+        options: [
+          "Slippery Slope",
+          "False Dilemma",
+          "Equivocation",
+          "Whataboutism",
+        ],
+        explanation:
+          "The word 'arms' is shifted from its historical meaning of personal firearms to an absurdly broad interpretation that includes weapons of mass destruction.",
+      },
+    ],
+  },
+  {
+    id: "sunk_cost",
+    name: "Sunk Cost Fallacy",
+    aliases: ["Throwing Good Money After Bad", "Concorde Fallacy"],
+    definition:
+      "Continuing a course of action because of previously invested resources (time, money, effort), even when it's no longer rational to do so.",
+    belt: "brown",
+    examples: [
+      {
+        argument:
+          "I've already spent three years in this graduate program and I'm miserable, but I can't quit now — it would mean those three years were wasted.",
+        correctAnswer: "Sunk Cost Fallacy",
+        options: [
+          "Appeal to Emotion",
+          "False Dilemma",
+          "Sunk Cost Fallacy",
+          "Slippery Slope",
+        ],
+        explanation:
+          "The three years are gone regardless — future decisions should be based on expected future outcomes, not past investments that cannot be recovered.",
+      },
+      {
+        argument:
+          "We've already invested $50 million into this fighter jet project. Even though it's over budget and underperforming, canceling it now would waste all that money.",
+        correctAnswer: "Sunk Cost Fallacy",
+        options: [
+          "Sunk Cost Fallacy",
+          "Bandwagon",
+          "False Cause",
+          "Appeal to Authority",
+        ],
+        explanation:
+          "The $50 million is already spent whether the project continues or not — the rational choice depends on future costs and benefits, not past expenditures.",
+      },
+    ],
+  },
+  {
+    id: "loaded_question",
+    name: "Loaded Question",
+    aliases: ["Complex Question", "Plurium Interrogationum"],
+    definition:
+      "Asking a question that contains an unjustified assumption, making any direct answer an admission of that assumption.",
+    belt: "brown",
+    examples: [
+      {
+        argument:
+          "Have you stopped spreading conspiracy theories on your podcast yet?",
+        correctAnswer: "Loaded Question",
+        options: [
+          "Ad Hominem",
+          "Loaded Question",
+          "Straw Man",
+          "Circular Reasoning",
+        ],
+        explanation:
+          "The question presupposes that the person was spreading conspiracy theories — answering 'yes' or 'no' both accept that unproven premise.",
+      },
+      {
+        argument:
+          "When is the government going to admit that the new tax policy was designed to hurt the middle class?",
+        correctAnswer: "Loaded Question",
+        options: [
+          "Appeal to Emotion",
+          "False Dilemma",
+          "Loaded Question",
+          "Whataboutism",
+        ],
+        explanation:
+          "The question embeds the unproven claim that the policy was intentionally designed to harm the middle class, forcing any answer to accept that framing.",
+      },
+    ],
+  },
 ];
 
 export const beltLevels = [

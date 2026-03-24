@@ -367,4 +367,269 @@ export const sourceScenarios: SourceScenario[] = [
       "Check team-affiliated media for the full transcript",
     ],
   },
+
+  // --- CLICKBAIT: AI-THEMED (3) ---
+  {
+    id: 21,
+    headline: "TERRIFYING: AI Deepfakes Are Now Indistinguishable From Reality — No One Is Safe",
+    source: "ViralTechPanic.com",
+    snippet:
+      "A new AI tool can generate video of any person saying anything in seconds. Experts warn that deepfakes have reached a point where 'no human or computer can tell the difference.' Your identity could be stolen tomorrow.",
+    category: "clickbait",
+    categoryLabel: "Clickbait",
+    idealCredibility: 1,
+    biasNotes:
+      "Fear-driven clickbait exaggerating deepfake capabilities. While deepfakes are improving, detection tools also advance, and forensic analysis can still identify artifacts. 'No human or computer' is an unattributed, absolutist claim. The unnamed 'experts' and doomsday tone are red flags.",
+    checkSuggestions: [
+      "Search for peer-reviewed research on current deepfake detection accuracy rates",
+      "Check what NIST and DARPA's MediFor program say about detection capabilities",
+      "Look for the specific AI tool mentioned and verify its actual capabilities",
+    ],
+  },
+  {
+    id: 22,
+    headline: "AI Can Now Read Your Thoughts — And Big Tech Is Already Using It",
+    source: "DigitalDreadReport.io",
+    snippet:
+      "Leaked documents reveal that major tech companies have developed AI systems that can decode human thoughts from smartphone sensor data. One anonymous engineer calls it 'the end of mental privacy as we know it.'",
+    category: "clickbait",
+    categoryLabel: "Clickbait",
+    idealCredibility: 1,
+    biasNotes:
+      "Massively overstates the state of brain-computer interface research. Current neural decoding requires invasive implants or laboratory-grade fMRI machines — not smartphone sensors. 'Leaked documents' and a single anonymous source are classic clickbait fabrication signals.",
+    checkSuggestions: [
+      "Research the actual state of neural decoding technology and what hardware it requires",
+      "Check whether any credible neuroscience outlet has reported on this claim",
+      "Verify whether any 'leaked documents' have been published or corroborated",
+    ],
+  },
+  {
+    id: 23,
+    headline: "AI Art Generator Destroys Entire Creative Industry in Just 6 Months",
+    source: "OutrageClickMedia.com",
+    snippet:
+      "Since AI image generators launched, the creative industry has been 'completely decimated,' with freelance artists reporting zero income. Industry insiders say human art will be 'extinct within a year.'",
+    category: "clickbait",
+    categoryLabel: "Clickbait",
+    idealCredibility: 1,
+    biasNotes:
+      "Uses absolutist language ('destroys,' 'completely decimated,' 'extinct') to maximize emotional reaction. While AI art tools have disrupted parts of the illustration market, the entire creative industry encompasses far more than digital illustration. No data, surveys, or named sources are provided.",
+    checkSuggestions: [
+      "Look for actual employment data from the Bureau of Labor Statistics for creative occupations",
+      "Check reports from industry groups like the Graphic Artists Guild or AIGA",
+      "Search for nuanced reporting on how AI tools are affecting specific creative sub-sectors",
+    ],
+  },
+
+  // --- LEGITIMATE (3, including 1 AI) ---
+  {
+    id: 24,
+    headline: "EU Passes Comprehensive AI Act Setting Risk-Based Regulation Framework",
+    source: "Reuters",
+    snippet:
+      "The European Parliament voted 523-46 to approve the AI Act, establishing the world's first comprehensive legal framework for artificial intelligence. The law classifies AI systems by risk level, banning social scoring and real-time biometric surveillance with limited exceptions for law enforcement.",
+    category: "legitimate",
+    categoryLabel: "Legitimate Breaking News",
+    idealCredibility: 5,
+    biasNotes:
+      "Factual reporting from a major wire service with specific vote tallies, named legislative body, and concrete policy details. The language is neutral and descriptive. Reuters is widely regarded as one of the most reliable nonpartisan news sources globally.",
+    checkSuggestions: [
+      "Verify the vote count on the European Parliament's official legislative tracker",
+      "Read the full text of the AI Act on EUR-Lex (EU law database)",
+      "Cross-reference with coverage from other wire services (AP, AFP)",
+    ],
+  },
+  {
+    id: 25,
+    headline: "Japan's Population Falls Below 120 Million for First Time Since 1972",
+    source: "The Japan Times / Kyodo News",
+    snippet:
+      "Japan's Ministry of Internal Affairs reported that the nation's population dropped to 119.8 million as of October 1, a decline of 830,000 from the previous year. The decrease marks the 15th consecutive annual decline. Immigration partially offset the natural population loss.",
+    category: "legitimate",
+    categoryLabel: "Legitimate Breaking News",
+    idealCredibility: 5,
+    biasNotes:
+      "Precise figures from an official government ministry, reported by Japan's leading English-language newspaper citing the national wire service. The tone is factual, includes relevant context (consecutive years of decline, immigration offset), and avoids sensationalism.",
+    checkSuggestions: [
+      "Check Japan's Ministry of Internal Affairs and Communications for the original data release",
+      "Verify the historical population figures with the Statistics Bureau of Japan",
+      "Compare with UN Population Division projections for Japan",
+    ],
+  },
+  {
+    id: 26,
+    headline: "Breakthrough Malaria Vaccine Shows 77% Efficacy in Phase III Trials",
+    source: "The Lancet (press summary via BBC News)",
+    snippet:
+      "Results published in The Lancet from a Phase III trial across five West African countries show the R21/Matrix-M malaria vaccine achieved 77% efficacy in children aged 5-17 months over a 12-month follow-up. The WHO is reviewing the data for prequalification.",
+    category: "legitimate",
+    categoryLabel: "Legitimate Breaking News",
+    idealCredibility: 5,
+    biasNotes:
+      "Published in a top-tier peer-reviewed journal, reported by a credible news outlet. Specific efficacy data, trial phase, age group, geographic scope, and follow-up period are all included. The mention of WHO review adds institutional context without overpromising.",
+    checkSuggestions: [
+      "Read the original study in The Lancet for full methodology and limitations",
+      "Check the WHO's position on R21/Matrix-M prequalification status",
+      "Look for independent expert commentary on the trial design and results",
+    ],
+  },
+
+  // --- SATIRE (3) ---
+  {
+    id: 27,
+    headline: "Man Who Has Never Left Suburb Confident He Could Survive in the Wilderness Indefinitely",
+    source: "The Onion",
+    snippet:
+      "Local man Travis Dunford, 41, who once got lost in an IKEA, told friends he could 'easily live off the land' if civilization collapsed. Dunford cited his ownership of a Swiss Army knife and one season of watching Alone as key qualifications.",
+    category: "satire",
+    categoryLabel: "Satire",
+    idealCredibility: 2,
+    biasNotes:
+      "Classic Onion format: a fictional 'area man' with comedic overconfidence. The humor lies in the gap between the character's self-assessment and obvious lack of qualifications. Clearly satirical, but headlines can spread without source attribution.",
+    checkSuggestions: [
+      "Confirm the publication is a known satire outlet (The Onion)",
+      "Look for absurd biographical details that signal fictional characters",
+      "Note the comedic structure of inflated confidence vs. deflating details",
+    ],
+  },
+  {
+    id: 28,
+    headline: "Local Council Approves Plan to Fight Climate Change by Painting All Roads White",
+    source: "The Daily Mash",
+    snippet:
+      "Greendale Borough Council voted unanimously to combat rising temperatures by repainting every road surface in reflective white. 'If it works for Greek islands, it can work for the M25,' said Councillor Margaret Phelps, who also proposed installing air conditioning outdoors.",
+    category: "satire",
+    categoryLabel: "Satire",
+    idealCredibility: 2,
+    biasNotes:
+      "The Daily Mash is a British satirical publication. The premise takes a real concept (cool roofs and reflective surfaces) and exaggerates it to absurdity. The quote about outdoor air conditioning is a clear satirical signal, but the headline alone could be shared as real.",
+    checkSuggestions: [
+      "Verify that The Daily Mash is a satirical publication",
+      "Check if 'Greendale Borough Council' is a real local authority",
+      "Look for the story on any legitimate local government news source",
+    ],
+  },
+  {
+    id: 29,
+    headline: "Tech Company Announces Revolutionary Product That Is Just a Slightly Larger Rectangle",
+    source: "Hard Drive (harddrive.net)",
+    snippet:
+      "Nexora Technologies unveiled its latest device at a packed keynote event, describing the slightly larger, slightly thinner rectangle as 'the most significant innovation in a generation.' The audience of tech journalists applauded for nine minutes.",
+    category: "satire",
+    categoryLabel: "Satire",
+    idealCredibility: 2,
+    biasNotes:
+      "Hard Drive is a satirical tech and gaming publication. This parodies the hype cycle around consumer electronics launches. The fictional company name and absurd details (nine minutes of applause for a rectangle) are satirical indicators, but the format closely mimics real tech journalism.",
+    checkSuggestions: [
+      "Check if Hard Drive / harddrive.net is a satirical outlet",
+      "Verify whether 'Nexora Technologies' is a real company",
+      "Note the comedic exaggeration in the audience reaction and product description",
+    ],
+  },
+
+  // --- MISLEADING STATISTICS (3, including 1 AI) ---
+  {
+    id: 30,
+    headline: "AI Will Replace 80% of All Jobs Within 5 Years, Study Finds",
+    source: "FutureWorkAlert.com",
+    snippet:
+      "A new report claims that 80% of current job roles will be 'significantly impacted' by AI within five years. However, the study was commissioned by an AI automation vendor and defines 'significantly impacted' to include any role where AI could assist with at least one task.",
+    category: "misleading-stats",
+    categoryLabel: "Misleading Statistics",
+    idealCredibility: 2,
+    biasNotes:
+      "The headline converts 'significantly impacted' into 'replace,' a major distortion. The study's own definition of impact is so broad (one task affected) that nearly any job qualifies. The funding source — an AI automation vendor — is a clear conflict of interest that inflates findings to create demand for their products.",
+    checkSuggestions: [
+      "Check who funded and conducted the study — look for conflicts of interest",
+      "Examine how 'significantly impacted' is defined versus 'replaced'",
+      "Compare with credible forecasts from OECD, McKinsey Global Institute, or the Bureau of Labor Statistics",
+    ],
+  },
+  {
+    id: 31,
+    headline: "Organic Food Buyers Have 35% Lower Cancer Rates, Major Study Reveals",
+    source: "CleanLivingJournal.com",
+    snippet:
+      "A study of 70,000 adults found that those who reported eating organic food 'most of the time' had a 35% lower incidence of certain cancers compared to those who never ate organic. The study did not adjust for income, education, or overall dietary quality.",
+    category: "misleading-stats",
+    categoryLabel: "Misleading Statistics",
+    idealCredibility: 2,
+    biasNotes:
+      "Classic confounding variable problem. People who buy organic food tend to be wealthier, more health-conscious, exercise more, and have better healthcare access. Without controlling for these factors, the 35% figure is meaningless for establishing a causal relationship between organic food and cancer rates.",
+    checkSuggestions: [
+      "Check whether the study controlled for income, education, exercise, and overall diet",
+      "Look for the study in a peer-reviewed journal and read the limitations section",
+      "Search for systematic reviews on organic food and cancer outcomes (e.g., from the Annals of Internal Medicine)",
+    ],
+  },
+  {
+    id: 32,
+    headline: "Homeschooled Students Score 30% Higher on Standardized Tests, Report Shows",
+    source: "ParentChoiceAdvocacy.org",
+    snippet:
+      "A national survey found that homeschooled students scored an average of 30 percentile points higher than public school students on standardized achievement tests. The survey was voluntary, and participation was self-selected by homeschooling families.",
+    category: "misleading-stats",
+    categoryLabel: "Misleading Statistics",
+    idealCredibility: 2,
+    biasNotes:
+      "Severe self-selection bias: families who voluntarily submit test scores are likely those whose children perform well. Struggling homeschool students are underrepresented. The source is an advocacy organization with an agenda. A fair comparison would require randomized sampling and controlling for parental education and income.",
+    checkSuggestions: [
+      "Examine whether the survey used random sampling or self-selected participants",
+      "Check the source organization for advocacy bias or funding sources",
+      "Look for peer-reviewed research that controls for self-selection and socioeconomic factors",
+    ],
+  },
+
+  // --- OUT-OF-CONTEXT (3) ---
+  {
+    id: 33,
+    headline: "Health Minister Declares: 'We Cannot Trust Vaccines'",
+    source: "HealthSkepticNews.com",
+    snippet:
+      "At a parliamentary session on public health funding, Health Minister Joanna Whitfield stated: 'We cannot trust vaccines — to distribute themselves. That is why this budget allocates £2.3 billion to cold-chain infrastructure, rural clinics, and community health workers.'",
+    category: "out-of-context",
+    categoryLabel: "Out-of-Context Quote",
+    idealCredibility: 2,
+    biasNotes:
+      "The headline truncates the quote at the dash, converting a strong pro-vaccine funding statement into an anti-vaccine declaration. The minister was actually arguing for more investment in vaccine distribution infrastructure. This is a deliberate misrepresentation through selective editing.",
+    checkSuggestions: [
+      "Find the full parliamentary transcript or video of the session",
+      "Read the complete quote beyond where the headline cuts it",
+      "Check the Health Minister's official policy positions on vaccination programs",
+    ],
+  },
+  {
+    id: 34,
+    headline: "Tech CEO: 'Privacy Is Dead — Get Over It'",
+    source: "DataRightsBlog.net",
+    snippet:
+      "Speaking at a privacy conference, Meridian Systems CEO Lena Park said: 'Privacy is dead — get over it. That is the cynical view that we as an industry must reject. Our company is investing $500 million in end-to-end encryption because privacy is a fundamental right.'",
+    category: "out-of-context",
+    categoryLabel: "Out-of-Context Quote",
+    idealCredibility: 2,
+    biasNotes:
+      "The headline extracts a phrase the CEO was explicitly attributing to cynics before rejecting that position. The full quote shows the speaker arguing forcefully for privacy investment. This reversal of meaning through selective quoting is a common manipulation tactic.",
+    checkSuggestions: [
+      "Find the full keynote or conference talk transcript",
+      "Check the company's actual privacy policies and investments",
+      "Compare how other outlets reported the same speech",
+    ],
+  },
+  {
+    id: 35,
+    headline: "General Tells Congress: 'We Are Not Prepared for War'",
+    source: "DefenseAlarmDaily.com",
+    snippet:
+      "During a Senate Armed Services Committee hearing, General Marcus Reid testified: 'We are not prepared for war — to be fought the way it was fought 30 years ago. Our forces have modernized to meet 21st-century threats, and our readiness posture reflects that transformation.'",
+    category: "out-of-context",
+    categoryLabel: "Out-of-Context Quote",
+    idealCredibility: 2,
+    biasNotes:
+      "The headline truncates mid-sentence to imply military unpreparedness, when the general was actually explaining that the military has evolved beyond outdated warfare models. The full quote is a statement of modernization and confidence, not vulnerability.",
+    checkSuggestions: [
+      "Read the full Senate Armed Services Committee hearing transcript on congress.gov",
+      "Watch the C-SPAN recording of the testimony for full context",
+      "Check if the Department of Defense issued a clarification or readiness report",
+    ],
+  },
 ];
