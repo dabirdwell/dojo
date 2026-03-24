@@ -1,4 +1,4 @@
-import { type GameMode } from "@/data/belts";
+import { type GameMode, type Belt, getBeltForXP } from "@/data/belts";
 
 const PROGRESS_KEY = "dojo-progress";
 
@@ -12,6 +12,12 @@ export interface GameStats {
 export interface ProgressData {
   totalXP: number;
   stats: Record<GameMode, GameStats>;
+}
+
+export interface XPResult {
+  progress: ProgressData;
+  beltChanged: boolean;
+  newBelt: Belt | null;
 }
 
 const defaultStats: GameStats = {
@@ -63,15 +69,22 @@ export function awardXP(
   xp: number,
   correct: number,
   total: number
-): ProgressData {
+): XPResult {
   const progress = loadProgress();
+  const previousBelt = getBeltForXP(progress.totalXP);
   progress.totalXP += xp;
   progress.stats[mode].totalPlays += 1;
   progress.stats[mode].totalCorrect += correct;
   progress.stats[mode].totalQuestions += total;
   progress.stats[mode].xpEarned += xp;
   saveProgress(progress);
-  return progress;
+  const currentBelt = getBeltForXP(progress.totalXP);
+  const beltChanged = previousBelt.name !== currentBelt.name;
+  return {
+    progress,
+    beltChanged,
+    newBelt: beltChanged ? currentBelt : null,
+  };
 }
 
 export function getTotalAccuracy(progress: ProgressData): number {

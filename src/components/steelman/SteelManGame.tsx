@@ -6,8 +6,10 @@ import {
   categoryLabels,
   type SteelManScenario,
 } from "@/data/steelman-scenarios";
+import { type Belt } from "@/data/belts";
 import { awardXP } from "@/lib/progress";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
+import BeltUpCelebration from "@/components/belt-up/BeltUpCelebration";
 
 type GamePhase = "select" | "write" | "evaluating" | "result";
 
@@ -17,6 +19,12 @@ interface Evaluation {
   concerns: number;
   feedback: string;
 }
+
+const difficultyLabel: Record<1 | 2 | 3, { text: string; color: string }> = {
+  1: { text: "Beginner", color: "text-green-400 border-green-400/30" },
+  2: { text: "Intermediate", color: "text-yellow-400 border-yellow-400/30" },
+  3: { text: "Advanced", color: "text-red-400 border-red-400/30" },
+};
 
 function shuffleArray<T>(arr: T[]): T[] {
   const shuffled = [...arr];
@@ -58,6 +66,7 @@ export default function SteelManGame() {
   const [showHints, setShowHints] = useState(false);
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
   const [sessionScores, setSessionScores] = useState<Evaluation[]>([]);
+  const [earnedBelt, setEarnedBelt] = useState<Belt | null>(null);
 
   const handleSelectScenario = useCallback((s: SteelManScenario) => {
     setScenario(s);
@@ -93,9 +102,12 @@ export default function SteelManGame() {
       setCompletedIds((prev) => new Set(prev).add(scenario.id));
       setSessionScores((prev) => [...prev, data]);
       const total = data.charity + data.strength + data.concerns;
-      const xp = 30 + (total >= 12 ? 15 : 0);
+      const xp = 40 + (total >= 12 ? 20 : 0);
       const goodEval = total >= 9 ? 1 : 0;
-      awardXP("steelman", xp, goodEval, 1);
+      const result = awardXP("steelman", xp, goodEval, 1);
+      if (result.beltChanged && result.newBelt) {
+        setEarnedBelt(result.newBelt);
+      }
       setPhase("result");
     } catch {
       setError("Could not evaluate your response. Please try again.");
@@ -139,7 +151,7 @@ export default function SteelManGame() {
               href="/"
               className="text-dojo-muted hover:text-dojo-text text-sm transition-colors"
             >
-              ← Back
+              &larr; Back
             </a>
             <BeltBadge />
           </div>
@@ -161,7 +173,7 @@ export default function SteelManGame() {
                   <span className="font-mono font-semibold text-dojo-accent">
                     {sessionScores.length} completed
                   </span>
-                  <span className="text-dojo-muted">·</span>
+                  <span className="text-dojo-muted">&middot;</span>
                   <span className="font-mono">
                     avg{" "}
                     {(
@@ -188,6 +200,7 @@ export default function SteelManGame() {
                 <div className="space-y-3">
                   {shuffleArray(scenarios).map((s) => {
                     const done = completedIds.has(s.id);
+                    const diff = difficultyLabel[s.difficulty];
                     return (
                       <button
                         key={s.id}
@@ -199,17 +212,30 @@ export default function SteelManGame() {
                         }`}
                       >
                         <div className="flex items-start justify-between gap-3">
-                          <div>
+                          <div className="flex-1 min-w-0">
                             <p className="font-medium text-dojo-text">
                               &ldquo;{s.position}&rdquo;
                             </p>
                             <p className="text-xs text-dojo-muted mt-1">
                               {s.context}
                             </p>
+                            <div className="flex items-center gap-2 mt-2 flex-wrap">
+                              <span className={`text-xs px-1.5 py-0.5 rounded border ${diff.color}`}>
+                                {diff.text}
+                              </span>
+                              {s.tags.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="text-xs text-dojo-muted/60 px-1.5 py-0.5 rounded bg-dojo-surface"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                           {done && (
                             <span className="text-green-500 text-sm shrink-0">
-                              ✓
+                              &#10003;
                             </span>
                           )}
                         </div>
@@ -235,7 +261,7 @@ export default function SteelManGame() {
               onClick={handleBack}
               className="text-dojo-muted hover:text-dojo-text text-sm transition-colors"
             >
-              ← Scenarios
+              &larr; Scenarios
             </button>
             <BeltBadge />
           </div>
@@ -243,8 +269,13 @@ export default function SteelManGame() {
 
         <div className="flex-1 flex items-start justify-center px-6 py-12">
           <div className="max-w-2xl w-full">
-            <div className="text-xs text-dojo-muted uppercase tracking-wider mb-3">
-              Construct the strongest argument for this position
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-xs text-dojo-muted uppercase tracking-wider">
+                Construct the strongest argument for this position
+              </span>
+              <span className={`text-xs px-1.5 py-0.5 rounded border ${difficultyLabel[scenario!.difficulty].color}`}>
+                {difficultyLabel[scenario!.difficulty].text}
+              </span>
             </div>
 
             <blockquote className="text-lg sm:text-xl leading-relaxed text-dojo-text border-l-2 border-dojo-accent pl-5 mb-6">
@@ -259,7 +290,7 @@ export default function SteelManGame() {
                 onClick={() => setShowHints(!showHints)}
                 className="text-xs text-dojo-accent hover:text-dojo-accent-hover transition-colors"
               >
-                {showHints ? "Hide hints ▲" : "Show hints ▼"}
+                {showHints ? "Hide hints \u25B2" : "Show hints \u25BC"}
               </button>
               {showHints && (
                 <ul className="mt-3 space-y-2 animate-fade-in">
@@ -327,10 +358,13 @@ export default function SteelManGame() {
   // --- Result screen ---
   if (phase === "result" && evaluation) {
     const total = evaluation.charity + evaluation.strength + evaluation.concerns;
-    const xp = 30 + (total >= 12 ? 15 : 0);
+    const xp = 40 + (total >= 12 ? 20 : 0);
 
     return (
       <div className="min-h-screen flex items-center justify-center px-6 py-12">
+        {earnedBelt && (
+          <BeltUpCelebration newBelt={earnedBelt} onDismiss={() => setEarnedBelt(null)} />
+        )}
         <div className="max-w-md w-full animate-fade-in">
           <div className="text-center mb-8">
             <div className="text-6xl mb-4">
@@ -348,7 +382,7 @@ export default function SteelManGame() {
               +{xp} XP
             </div>
             <div className="text-sm text-dojo-muted">
-              30 base{total >= 12 ? " + 15 quality bonus" : ""}
+              40 base{total >= 12 ? " + 20 quality bonus" : ""}
             </div>
           </div>
 

@@ -2,8 +2,10 @@
 
 import { useState, useCallback, useMemo, useEffect } from "react";
 import { sourceScenarios, type SourceScenario } from "@/data/source-scenarios";
+import { type Belt } from "@/data/belts";
 import { awardXP } from "@/lib/progress";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
+import BeltUpCelebration from "@/components/belt-up/BeltUpCelebration";
 
 interface FeedbackItem {
   category: string;
@@ -120,13 +122,17 @@ export default function SourceCheckGame() {
   );
 
   const [xpAwarded, setXpAwarded] = useState(false);
+  const [earnedBelt, setEarnedBelt] = useState<Belt | null>(null);
 
   useEffect(() => {
     if (finished && !xpAwarded) {
       const correctCount = results.filter(
         (r) => r.evaluation.totalScore / r.evaluation.maxScore >= 0.6
       ).length;
-      awardXP("source-check", totalXP, correctCount, results.length);
+      const result = awardXP("source-check", totalXP, correctCount, results.length);
+      if (result.beltChanged && result.newBelt) {
+        setEarnedBelt(result.newBelt);
+      }
       setXpAwarded(true);
     }
   }, [finished, xpAwarded, totalXP, results]);
@@ -139,6 +145,9 @@ export default function SourceCheckGame() {
 
     return (
       <div className="min-h-screen flex items-center justify-center px-6 py-12">
+        {earnedBelt && (
+          <BeltUpCelebration newBelt={earnedBelt} onDismiss={() => setEarnedBelt(null)} />
+        )}
         <div className="max-w-lg w-full text-center">
           <div className="text-6xl mb-6">
             {pct >= 80 ? "🔍" : pct >= 50 ? "📰" : "📖"}

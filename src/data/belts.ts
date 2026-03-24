@@ -11,7 +11,7 @@ export const belts: Belt[] = [
   { name: "Yellow Belt", color: "#F5D442", minXP: 50, maxXP: 149, label: "Foundations" },
   { name: "Green Belt", color: "#4CAF50", minXP: 150, maxXP: 299, label: "Intermediate" },
   { name: "Blue Belt", color: "#2196F3", minXP: 300, maxXP: 499, label: "Advanced" },
-  { name: "Purple Belt", color: "#9C27B0", minXP: 500, maxXP: 999, label: "Expert" },
+  { name: "Brown Belt", color: "#795548", minXP: 500, maxXP: 999, label: "Expert" },
   { name: "Black Belt", color: "#1A1A1A", minXP: 1000, maxXP: null, label: "Master" },
 ];
 
@@ -40,8 +40,8 @@ export function getProgressToNextBelt(xp: number): number {
 export type GameMode = "fallacy-flash" | "steelman" | "source-check" | "daily-brief";
 
 export const XP_AWARDS: Record<GameMode, { base: number; description: string }> = {
-  "fallacy-flash": { base: 10, description: "10 XP per correct answer" },
-  steelman: { base: 20, description: "20 XP per good evaluation" },
-  "source-check": { base: 15, description: "15 XP per correct analysis" },
-  "daily-brief": { base: 25, description: "25 XP per perfect day" },
+  "fallacy-flash": { base: 10, description: "10 XP per correct + 25 bonus" },
+  steelman: { base: 40, description: "40 XP base + 20 quality bonus" },
+  "source-check": { base: 15, description: "Up to 15 XP per source analyzed" },
+  "daily-brief": { base: 40, description: "Up to 40 XP per perfect day" },
 };

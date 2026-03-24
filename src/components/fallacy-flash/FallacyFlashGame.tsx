@@ -2,8 +2,10 @@
 
 import { useState, useCallback, useMemo, useEffect } from "react";
 import { fallacies, type FallacyExample } from "@/data/fallacies";
+import { type Belt } from "@/data/belts";
 import { awardXP } from "@/lib/progress";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
+import BeltUpCelebration from "@/components/belt-up/BeltUpCelebration";
 
 interface QuestionState {
   fallacy: (typeof fallacies)[number];
@@ -75,11 +77,15 @@ export default function FallacyFlashGame() {
   );
 
   const [xpAwarded, setXpAwarded] = useState(false);
+  const [earnedBelt, setEarnedBelt] = useState<Belt | null>(null);
 
   useEffect(() => {
     if (finished && !xpAwarded) {
       const xp = score * 10 + (score >= 5 ? 25 : 0);
-      awardXP("fallacy-flash", xp, score, questions.length);
+      const result = awardXP("fallacy-flash", xp, score, questions.length);
+      if (result.beltChanged && result.newBelt) {
+        setEarnedBelt(result.newBelt);
+      }
       setXpAwarded(true);
     }
   }, [finished, xpAwarded, score, questions.length]);
@@ -88,6 +94,9 @@ export default function FallacyFlashGame() {
     const xp = score * 10 + (score >= 5 ? 25 : 0);
     return (
       <div className="min-h-screen flex items-center justify-center px-6">
+        {earnedBelt && (
+          <BeltUpCelebration newBelt={earnedBelt} onDismiss={() => setEarnedBelt(null)} />
+        )}
         <div className="max-w-md w-full text-center">
           <div className="text-6xl mb-6">
             {score >= 8 ? "🥋" : score >= 5 ? "💪" : "📖"}

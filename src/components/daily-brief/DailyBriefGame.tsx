@@ -5,8 +5,10 @@ import {
   dailyChallenges,
   type DailyChallenge,
 } from "@/data/daily-brief-scenarios";
+import { type Belt } from "@/data/belts";
 import { awardXP } from "@/lib/progress";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
+import BeltUpCelebration from "@/components/belt-up/BeltUpCelebration";
 
 type PlayerLabel = "logical-error" | "missing-context" | "solid";
 
@@ -76,6 +78,7 @@ export default function DailyBriefGame() {
   const [streak, setStreak] = useState<StreakData>({ current: 0, best: 0, lastCompleted: null });
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [alreadyCompleted, setAlreadyCompleted] = useState(false);
+  const [earnedBelt, setEarnedBelt] = useState<Belt | null>(null);
 
   useEffect(() => {
     const s = getStreakData();
@@ -167,8 +170,11 @@ export default function DailyBriefGame() {
       saveStreakData(newStreak);
       setStreak(newStreak);
 
-      const xp = correct === 3 ? 25 : correct * 8;
-      awardXP("daily-brief", xp, correct, 3);
+      const xp = correct === 3 ? 40 : correct * 12;
+      const xpResult = awardXP("daily-brief", xp, correct, 3);
+      if (xpResult.beltChanged && xpResult.newBelt) {
+        setEarnedBelt(xpResult.newBelt);
+      }
     }
   }, [challenge, labels]);
 
@@ -429,6 +435,9 @@ export default function DailyBriefGame() {
         ) : (
           results && (
             <div className="animate-fade-in">
+              {earnedBelt && (
+                <BeltUpCelebration newBelt={earnedBelt} onDismiss={() => setEarnedBelt(null)} />
+              )}
               <div className="bg-dojo-card border border-dojo-border rounded-xl p-6 text-center">
                 <div className="text-4xl mb-3">
                   {results.correct === 3
