@@ -9,6 +9,7 @@ import { type Belt } from "@/data/belts";
 import { awardXP } from "@/lib/progress";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
 import BeltUpCelebration from "@/components/belt-up/BeltUpCelebration";
+import ShareScore from "@/components/share-score/ShareScore";
 
 type PlayerLabel = "logical-error" | "missing-context" | "solid";
 
@@ -458,6 +459,10 @@ export default function DailyBriefGame() {
                     ? "Tricky set. Review the explanations above."
                     : "Tough one. The explanations above break it down."}
                 </p>
+
+                <div className="mb-4">
+                  <ShareScore score={results.correct} maxScore={results.total} modeName="Daily Brief" />
+                </div>
 
                 <div className="flex items-center justify-center gap-6 text-sm">
                   <div>

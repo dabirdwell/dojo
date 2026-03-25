@@ -47,6 +47,18 @@ const gameModes = [
     ],
   },
   {
+    name: "Daily Challenge",
+    icon: "📅",
+    href: "/play/daily",
+    description:
+      "Same 5-question fallacy challenge for everyone, every day. Compete on score and speed, then come back tomorrow for a fresh set.",
+    features: [
+      "New challenge every 24 hours",
+      "Same questions for all players",
+      "Score + time tracking",
+    ],
+  },
+  {
     name: "Daily Brief",
     icon: "📰",
     href: "/play/daily-brief",
@@ -77,7 +89,7 @@ export default function GameModes() {
     <section id="game-modes" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          Six Ways to Train
+          Seven Ways to Train
         </h2>
         <p className="text-dojo-muted text-center mb-16 max-w-xl mx-auto">
           Each mode targets a different critical thinking skill. Together, they

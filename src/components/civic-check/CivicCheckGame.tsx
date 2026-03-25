@@ -6,6 +6,7 @@ import { type Belt } from "@/data/belts";
 import { awardXP } from "@/lib/progress";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
 import BeltUpCelebration from "@/components/belt-up/BeltUpCelebration";
+import ShareScore from "@/components/share-score/ShareScore";
 
 interface QuestionState {
   scenario: CivicScenario;
@@ -119,6 +120,10 @@ export default function CivicCheckGame() {
             <div className="text-sm text-dojo-muted">
               {score * 15} base{score >= 7 ? " + 30 policy bonus" : ""}
             </div>
+          </div>
+
+          <div className="mb-6">
+            <ShareScore score={score} maxScore={questions.length} modeName="Civic Check" />
           </div>
 
           {/* Review */}

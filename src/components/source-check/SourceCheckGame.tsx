@@ -6,6 +6,7 @@ import { type Belt } from "@/data/belts";
 import { awardXP } from "@/lib/progress";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
 import BeltUpCelebration from "@/components/belt-up/BeltUpCelebration";
+import ShareScore from "@/components/share-score/ShareScore";
 
 interface FeedbackItem {
   category: string;
@@ -164,6 +165,10 @@ export default function SourceCheckGame() {
             <div className="text-sm text-dojo-muted">
               Source analysis mastery
             </div>
+          </div>
+
+          <div className="mb-6">
+            <ShareScore score={totalScore} maxScore={totalMax} modeName="Source Check" />
           </div>
 
           {/* Review */}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { type Belt } from "@/data/belts";
 
 interface Props {
@@ -8,33 +9,50 @@ interface Props {
 }
 
 export default function BeltUpCelebration({ newBelt, onDismiss }: Props) {
+  // Auto-dismiss after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(onDismiss, 3000);
+    return () => clearTimeout(timer);
+  }, [onDismiss]);
+
+  const beltColor =
+    newBelt.name === "Black Belt" ? "#f0e6d6" : newBelt.color;
+
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 animate-fade-in"
       onClick={onDismiss}
     >
+      {/* Radial glow behind the card */}
       <div
-        className="bg-dojo-card border border-dojo-border rounded-2xl p-8 text-center max-w-sm mx-4 animate-scale-in"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `radial-gradient(circle at center, ${newBelt.color}15 0%, transparent 60%)`,
+        }}
+      />
+
+      <div
+        className="relative bg-dojo-card border border-dojo-border rounded-2xl p-10 text-center max-w-sm mx-4 belt-celebrate"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="text-6xl mb-4">🥋</div>
+        {/* Animated belt icon */}
+        <div className="text-7xl mb-5 belt-icon-pulse">🥋</div>
+
         <h2
-          className="text-2xl font-bold mb-1"
-          style={{
-            color:
-              newBelt.name === "Black Belt" ? "#f0e6d6" : newBelt.color,
-          }}
+          className="text-3xl font-bold mb-1"
+          style={{ color: beltColor }}
         >
           {newBelt.name} Earned!
         </h2>
-        <p className="text-sm text-dojo-muted mb-5">{newBelt.label}</p>
+        <p className="text-sm text-dojo-muted mb-6">{newBelt.label}</p>
 
+        {/* Belt glow ring */}
         <div
-          className="w-20 h-20 rounded-full border-4 mx-auto mb-5"
+          className="w-24 h-24 rounded-full border-4 mx-auto mb-6 belt-ring-glow"
           style={{
             borderColor: newBelt.color,
-            backgroundColor: `${newBelt.color}20`,
-            boxShadow: `0 0 40px ${newBelt.color}50`,
+            backgroundColor: `${newBelt.color}15`,
+            boxShadow: `0 0 60px ${newBelt.color}40, 0 0 120px ${newBelt.color}20`,
           }}
         />
 

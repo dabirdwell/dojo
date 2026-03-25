@@ -42,11 +42,28 @@ export default function Hero() {
           </a>
         </div>
 
+        {/* Quick nav */}
+        <div className="mt-6 flex gap-4 justify-center">
+          <Link
+            href="/play/daily"
+            className="text-sm text-dojo-muted hover:text-dojo-accent transition-colors flex items-center gap-1.5"
+          >
+            <span>📅</span> Daily Challenge
+          </Link>
+          <span className="text-dojo-border">|</span>
+          <Link
+            href="/leaderboard"
+            className="text-sm text-dojo-muted hover:text-dojo-accent transition-colors flex items-center gap-1.5"
+          >
+            <span>🏆</span> Leaderboard
+          </Link>
+        </div>
+
         {/* Stat bar */}
         <div className="mt-16 flex justify-center gap-8 sm:gap-16 text-center">
           {[
             { value: "50", label: "Fallacies" },
-            { value: "5", label: "Game Modes" },
+            { value: "6", label: "Game Modes" },
             { value: "6", label: "Belt Ranks" },
           ].map((stat) => (
             <div key={stat.label}>

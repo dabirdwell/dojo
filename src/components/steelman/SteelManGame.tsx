@@ -10,6 +10,7 @@ import { type Belt } from "@/data/belts";
 import { awardXP } from "@/lib/progress";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
 import BeltUpCelebration from "@/components/belt-up/BeltUpCelebration";
+import ShareScore from "@/components/share-score/ShareScore";
 
 type GamePhase = "select" | "write" | "evaluating" | "result";
 
@@ -401,6 +402,10 @@ export default function SteelManGame() {
             <p className="text-sm text-dojo-text leading-relaxed">
               {evaluation.feedback}
             </p>
+          </div>
+
+          <div className="mb-6">
+            <ShareScore score={total} maxScore={15} modeName="Steel Man" />
           </div>
 
           {/* Your response (collapsed) */}

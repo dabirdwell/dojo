@@ -55,3 +55,34 @@ body {
 .animate-scale-in {
   animation: scale-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
+
+/* Belt celebration animations */
+@keyframes belt-celebrate {
+  0% { opacity: 0; transform: scale(0.6) translateY(20px); }
+  50% { opacity: 1; transform: scale(1.05) translateY(-5px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes belt-icon-pulse {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.15) rotate(-5deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+  75% { transform: scale(1.15) rotate(-3deg); }
+}
+
+@keyframes belt-ring-glow {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+.belt-celebrate {
+  animation: belt-celebrate 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.belt-icon-pulse {
+  animation: belt-icon-pulse 1.5s ease-in-out infinite;
+}
+
+.belt-ring-glow {
+  animation: belt-ring-glow 2s ease-in-out infinite;
+}
