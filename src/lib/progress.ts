@@ -35,6 +35,7 @@ function defaultProgress(): ProgressData {
       steelman: { ...defaultStats },
       "source-check": { ...defaultStats },
       "daily-brief": { ...defaultStats },
+      "civic-check": { ...defaultStats },
     },
   };
 }

@@ -58,6 +58,18 @@ const gameModes = [
       "Pre-built scenarios — no API needed",
     ],
   },
+  {
+    name: "Civic Check",
+    icon: "🏛",
+    href: "/play/civic-check",
+    description:
+      "Read real policy proposal summaries and identify what a bill actually does — versus what it claims, how it's commonly misread, or what its opponents say.",
+    features: [
+      "15 scenarios across housing, education, tech, health & energy",
+      "Fictionalized bills based on real legislative patterns",
+      "Builds policy literacy and close-reading skills",
+    ],
+  },
 ];
 
 export default function GameModes() {
@@ -65,7 +77,7 @@ export default function GameModes() {
     <section id="game-modes" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          Five Ways to Train
+          Six Ways to Train
         </h2>
         <p className="text-dojo-muted text-center mb-16 max-w-xl mx-auto">
           Each mode targets a different critical thinking skill. Together, they

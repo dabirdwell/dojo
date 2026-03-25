@@ -17,6 +17,7 @@ const MODE_LABELS: Record<GameMode, { name: string; icon: string }> = {
   steelman: { name: "Steel Man", icon: "shield" },
   "source-check": { name: "Source Check", icon: "search" },
   "daily-brief": { name: "Daily Brief", icon: "newspaper" },
+  "civic-check": { name: "Civic Check", icon: "landmark" },
 };
 
 export default function ProfileView() {
