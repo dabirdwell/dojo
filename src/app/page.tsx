@@ -29,7 +29,15 @@ export default function Home() {
       <footer className="py-12 px-6 border-t border-dojo-border">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-dojo-muted text-sm">
-            Dojo — Brain Mastery Series
+            A Brain Mastery app by{" "}
+            <a
+              href="https://humanityandai.com"
+              className="text-dojo-accent hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Humanity &amp; AI
+            </a>
           </p>
           <p className="text-dojo-muted/60 text-xs mt-2">
             Train your mind. Defend your thinking.
