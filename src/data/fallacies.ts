@@ -57,6 +57,27 @@ export const fallacies: Fallacy[] = [
         explanation:
           "Dismissing a policy based on the senator's background rather than the plan's merits.",
       },
+      {
+        argument:
+          "The researcher's findings on vaccine safety are meaningless — she didn't even go to an Ivy League school.",
+        correctAnswer: "Ad Hominem",
+        options: ["Ad Hominem", "Appeal to Authority", "Bandwagon", "Red Herring"],
+        explanation:
+          "The researcher's alma mater does not determine the validity of her scientific findings.",
+      },
+      {
+        argument:
+          "Why would we listen to a 22-year-old city council candidate? She's barely out of college and probably still lives with her parents.",
+        correctAnswer: "Ad Hominem",
+        options: [
+          "Straw Man",
+          "Ad Hominem",
+          "Hasty Generalization",
+          "Appeal to Emotion",
+        ],
+        explanation:
+          "The candidate's age and living situation are irrelevant to the quality of her policy proposals.",
+      },
     ],
   },
   {
@@ -105,6 +126,27 @@ export const fallacies: Fallacy[] = [
         ],
         explanation:
           "Most gun control advocates support regulation, not total bans — this distorts their position.",
+      },
+      {
+        argument:
+          '"Anyone who questions the effectiveness of lockdowns wants grandma to die."',
+        correctAnswer: "Straw Man",
+        options: ["Straw Man", "Appeal to Emotion", "False Dilemma", "Ad Hominem"],
+        explanation:
+          "Questioning a specific policy is not the same as wanting people to die — this distorts the critic's position.",
+      },
+      {
+        argument:
+          '"Environmentalists want us all to live in caves and give up modern technology."',
+        correctAnswer: "Straw Man",
+        options: [
+          "Slippery Slope",
+          "Straw Man",
+          "Red Herring",
+          "Bandwagon",
+        ],
+        explanation:
+          "Most environmentalists advocate for sustainable technology, not abandoning technology altogether.",
       },
     ],
   },
@@ -155,6 +197,19 @@ export const fallacies: Fallacy[] = [
         explanation:
           "Nobel-level chemistry expertise doesn't confer authority on immunology or vaccine safety.",
       },
+      {
+        argument:
+          "Elon Musk says we should be worried about population decline, so it must be the most important issue facing humanity.",
+        correctAnswer: "Appeal to Authority",
+        options: [
+          "Bandwagon",
+          "Appeal to Authority",
+          "Hasty Generalization",
+          "False Cause",
+        ],
+        explanation:
+          "Being a successful entrepreneur doesn't make someone an authority on demographics or public policy priorities.",
+      },
     ],
   },
   {
@@ -203,6 +258,19 @@ export const fallacies: Fallacy[] = [
         ],
         explanation:
           "Invoking respect for soldiers to bypass analysis of whether the budget is justified.",
+      },
+      {
+        argument:
+          "Imagine your child walking home from school alone, passing through dark alleys. That's why we need a $50 million surveillance system on every block.",
+        correctAnswer: "Appeal to Emotion",
+        options: [
+          "Slippery Slope",
+          "Appeal to Emotion",
+          "False Dilemma",
+          "Red Herring",
+        ],
+        explanation:
+          "The emotional scenario about children's safety is used to bypass rational analysis of whether the proposed surveillance system is effective or proportionate.",
       },
     ],
   },
@@ -253,6 +321,19 @@ export const fallacies: Fallacy[] = [
         explanation:
           "National security involves many strategies beyond this single binary choice.",
       },
+      {
+        argument:
+          "You either support this trade deal exactly as written, or you're an isolationist who wants to cut off America from the global economy.",
+        correctAnswer: "False Dilemma",
+        options: [
+          "False Dilemma",
+          "Ad Hominem",
+          "Straw Man",
+          "Slippery Slope",
+        ],
+        explanation:
+          "One can support international trade while still wanting to negotiate different terms — these aren't the only two positions.",
+      },
     ],
   },
   {
@@ -301,6 +382,19 @@ export const fallacies: Fallacy[] = [
         ],
         explanation:
           "Flexible work policies don't inevitably lead to total remote work and cultural collapse.",
+      },
+      {
+        argument:
+          "If we allow the government to mandate one vaccine, they'll soon mandate all medical procedures, and eventually they'll control every aspect of our health decisions.",
+        correctAnswer: "Slippery Slope",
+        options: [
+          "False Dilemma",
+          "Appeal to Emotion",
+          "Slippery Slope",
+          "Straw Man",
+        ],
+        explanation:
+          "Vaccine mandates have existed for decades without leading to government control of all medical decisions — each step in this chain is assumed, not demonstrated.",
       },
     ],
   },
@@ -351,6 +445,19 @@ export const fallacies: Fallacy[] = [
         explanation:
           "Three articles about failures don't account for the vast number of successful AI applications.",
       },
+      {
+        argument:
+          "My startup failed, and my friend's startup failed too. Clearly, starting a business is a guaranteed way to lose money.",
+        correctAnswer: "Hasty Generalization",
+        options: [
+          "Hasty Generalization",
+          "False Cause",
+          "Appeal to Emotion",
+          "Sunk Cost Fallacy",
+        ],
+        explanation:
+          "Two failed startups is far too small a sample to conclude that all businesses are doomed to fail.",
+      },
     ],
   },
   {
@@ -399,6 +506,19 @@ export const fallacies: Fallacy[] = [
         ],
         explanation:
           "Legislative accomplishments don't address the issue of dishonesty about credentials.",
+      },
+      {
+        argument:
+          "When asked about declining reading scores, the school board pointed to the new gym equipment and the school's winning basketball season.",
+        correctAnswer: "Red Herring",
+        options: [
+          "Red Herring",
+          "Appeal to Emotion",
+          "False Cause",
+          "Straw Man",
+        ],
+        explanation:
+          "Athletic achievements, while positive, are irrelevant to the question about declining reading scores.",
       },
     ],
   },
@@ -449,6 +569,19 @@ export const fallacies: Fallacy[] = [
         explanation:
           "The conclusion (free markets are efficient) is restated as the premise (free competition is efficient).",
       },
+      {
+        argument:
+          "We know this news source is trustworthy because they always report the truth, and we know they report the truth because they're a trustworthy source.",
+        correctAnswer: "Circular Reasoning",
+        options: [
+          "Appeal to Authority",
+          "Circular Reasoning",
+          "Bandwagon",
+          "Equivocation",
+        ],
+        explanation:
+          "Trustworthiness is used to prove truth-telling, which is used to prove trustworthiness — the argument chases its own tail.",
+      },
     ],
   },
   {
@@ -497,6 +630,19 @@ export const fallacies: Fallacy[] = [
         ],
         explanation:
           "Historical popularity doesn't make an idea correct — this was disproven despite widespread belief.",
+      },
+      {
+        argument:
+          "This cryptocurrency must be a good investment — over 10 million people have bought it in the last month alone.",
+        correctAnswer: "Bandwagon",
+        options: [
+          "Bandwagon",
+          "Appeal to Authority",
+          "False Cause",
+          "Hasty Generalization",
+        ],
+        explanation:
+          "Mass purchasing behavior doesn't indicate sound investment value — market bubbles are driven by exactly this kind of herd mentality.",
       },
     ],
   },
@@ -560,6 +706,19 @@ export const fallacies: Fallacy[] = [
         explanation:
           "Other voters' choices do not address the original criticism about failing to participate in the election.",
       },
+      {
+        argument:
+          "Why are we investigating this company's tax evasion when there are politicians who haven't paid their taxes either?",
+        correctAnswer: "Whataboutism",
+        options: [
+          "Whataboutism",
+          "Red Herring",
+          "Tu Quoque",
+          "False Dilemma",
+        ],
+        explanation:
+          "Politicians' tax issues, however serious, do not justify or address the company's alleged tax evasion.",
+      },
     ],
   },
   {
@@ -608,6 +767,14 @@ export const fallacies: Fallacy[] = [
         ],
         explanation:
           "A person's past financial mistakes do not make their current budgeting advice logically incorrect.",
+      },
+      {
+        argument:
+          "You're lecturing me about work-life balance? I've seen you answer emails at midnight. Your advice is hypocritical and worthless.",
+        correctAnswer: "Tu Quoque",
+        options: ["Ad Hominem", "Tu Quoque", "Red Herring", "Straw Man"],
+        explanation:
+          "The speaker's personal habits don't invalidate the advice — good counsel can come from imperfect practitioners.",
       },
     ],
   },
@@ -658,6 +825,19 @@ export const fallacies: Fallacy[] = [
         explanation:
           "The drop in crime could be due to other factors like seasonal changes, policing, or economic shifts — the streetlights alone are not proven causal.",
       },
+      {
+        argument:
+          "I started wearing my lucky socks and then won three games in a row. The socks are clearly the reason we're winning.",
+        correctAnswer: "False Cause",
+        options: [
+          "Hasty Generalization",
+          "False Cause",
+          "Bandwagon",
+          "Circular Reasoning",
+        ],
+        explanation:
+          "Temporal coincidence between wearing socks and winning doesn't establish a causal relationship — many other factors determine game outcomes.",
+      },
     ],
   },
   {
@@ -707,6 +887,19 @@ export const fallacies: Fallacy[] = [
         explanation:
           "Something being evolutionarily novel does not automatically make it harmful — the health effects of screens require evidence, not appeals to what is 'natural.'",
       },
+      {
+        argument:
+          "We shouldn't use lab-grown meat because it's not how nature intended us to get protein. If it's artificial, it can't be as good for you.",
+        correctAnswer: "Appeal to Nature",
+        options: [
+          "Appeal to Nature",
+          "False Dilemma",
+          "Hasty Generalization",
+          "Appeal to Emotion",
+        ],
+        explanation:
+          "Whether food is 'natural' or lab-produced says nothing about its nutritional value or safety — the naturalness of a source doesn't determine its health effects.",
+      },
     ],
   },
   {
@@ -755,6 +948,19 @@ export const fallacies: Fallacy[] = [
         ],
         explanation:
           "The word 'arms' is shifted from its historical meaning of personal firearms to an absurdly broad interpretation that includes weapons of mass destruction.",
+      },
+      {
+        argument:
+          "Evolution is 'just a theory.' And a theory is just a guess. So evolution is basically just a guess.",
+        correctAnswer: "Equivocation",
+        options: [
+          "Equivocation",
+          "Straw Man",
+          "Circular Reasoning",
+          "Appeal to Authority",
+        ],
+        explanation:
+          "The word 'theory' in everyday language means 'guess,' but in science it means a well-substantiated explanation supported by evidence — conflating these meanings is misleading.",
       },
     ],
   },

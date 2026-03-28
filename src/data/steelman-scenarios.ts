@@ -473,6 +473,171 @@ export const steelmanScenarios: SteelManScenario[] = [
     difficulty: 1,
     tags: ["labor", "productivity", "well-being"],
   },
+
+  // =============================================
+  // NEW SCENARIOS (10) — Content Mega-Pack
+  // =============================================
+
+  {
+    id: "gun-control-ban-semi-auto",
+    category: "politics",
+    position:
+      "Civilian ownership of semi-automatic firearms should be banned.",
+    context:
+      "Often dismissed as 'wanting to disarm law-abiding citizens,' but there are evidence-based public health and policy arguments for restricting high-capacity weapons.",
+    hints: [
+      "Consider the statistical relationship between firearm availability and mass casualty events",
+      "Think about how other high-income countries with strict gun laws compare on gun deaths per capita",
+      "What does the public health framework — treating gun violence as an epidemic — suggest about access reduction?",
+      "How do military-designed weapon features differ from those needed for hunting or home defense?",
+    ],
+    difficulty: 3,
+    tags: ["gun-control", "public-health", "policy"],
+  },
+  {
+    id: "open-borders-immigration",
+    category: "politics",
+    position:
+      "Countries should move toward open borders with minimal immigration restrictions.",
+    context:
+      "Easily mocked as 'naive' or 'suicidal,' but there are serious economic, moral, and historical arguments for dramatically freer migration.",
+    hints: [
+      "Consider the economic research estimating that open borders could double world GDP by unlocking trapped labor productivity",
+      "Think about the moral arbitrariness of birthplace — why should where you're born determine your life opportunities?",
+      "How did the relatively open borders of the 19th-century U.S. and EU's Schengen zone actually work in practice?",
+      "What would happen if labor could move as freely as capital and goods already do?",
+    ],
+    difficulty: 3,
+    tags: ["immigration", "economics", "human-rights"],
+  },
+  {
+    id: "single-payer-healthcare",
+    category: "politics",
+    position:
+      "The U.S. should replace private insurance with a single-payer healthcare system.",
+    context:
+      "Often attacked as 'socialism' or 'government takeover,' but most developed nations use some form of universal coverage with strong outcomes data.",
+    hints: [
+      "Consider the administrative overhead — the U.S. spends 34% of healthcare dollars on administration vs. 17% in Canada",
+      "Think about the bargaining power a single payer has to negotiate drug prices and procedure costs",
+      "How does the fragmented U.S. system create coverage gaps that produce worse aggregate outcomes?",
+      "What do international comparisons of life expectancy, infant mortality, and per-capita spending actually show?",
+    ],
+    difficulty: 2,
+    tags: ["healthcare", "economics", "policy"],
+  },
+  {
+    id: "ai-licensing-moratorium",
+    category: "tech-ethics",
+    position:
+      "Governments should require pre-approval licensing for training AI models above a certain capability threshold.",
+    context:
+      "Tech companies argue this kills innovation, but there are compelling arguments from nuclear and pharmaceutical regulation precedents.",
+    hints: [
+      "Consider the precedent: we already require pre-approval for drugs, nuclear reactors, and aircraft — why not powerful AI?",
+      "Think about the asymmetry: companies capture benefits while society bears catastrophic risks",
+      "What happens when capability growth outpaces our ability to understand what these systems will do?",
+      "How does the 'move fast and break things' philosophy scale when the things being broken are labor markets or democratic processes?",
+    ],
+    difficulty: 3,
+    tags: ["artificial-intelligence", "regulation", "governance"],
+  },
+  {
+    id: "school-vouchers",
+    category: "social",
+    position:
+      "Parents should receive government-funded vouchers to send their children to any school, including private and religious ones.",
+    context:
+      "Critics call this 'defunding public schools,' but there are genuine arguments about educational freedom, competition, and equity for low-income families.",
+    hints: [
+      "Consider how wealthy families already have school choice through residential selection — vouchers extend this to lower-income families",
+      "Think about the competitive pressure argument: when schools must compete for students, quality may improve",
+      "What does the evidence from Milwaukee, Indiana, and Sweden's voucher programs actually show?",
+      "How does one-size-fits-all schooling fail children with different learning needs, values, or circumstances?",
+    ],
+    difficulty: 2,
+    tags: ["education", "equity", "school-choice"],
+  },
+  {
+    id: "minimum-wage-25",
+    category: "politics",
+    position:
+      "The federal minimum wage should be raised to at least $22 per hour.",
+    context:
+      "Often dismissed as a 'job killer,' but there is substantial evidence that moderate minimum wage increases have smaller employment effects than classical theory predicts.",
+    hints: [
+      "Consider the Card-Krueger natural experiment and subsequent replications showing minimal job losses",
+      "Think about the monopsony model — in concentrated labor markets, employers pay below competitive wages",
+      "How does a higher wage floor reduce turnover costs and increase productivity through efficiency wages?",
+      "What has actually happened in cities like Seattle and states that raised their minimums significantly?",
+    ],
+    difficulty: 2,
+    tags: ["economics", "labor", "inequality"],
+  },
+  {
+    id: "nuclear-phase-out",
+    category: "social",
+    position:
+      "Nuclear power should be phased out entirely, even to fight climate change.",
+    context:
+      "Often dismissed as irrational fear, but there are real economic, environmental justice, and risk arguments against nuclear energy.",
+    hints: [
+      "Consider the full lifecycle costs: nuclear plants consistently run over budget and over schedule (Vogtle, Hinkley Point C, Olkiluoto)",
+      "Think about environmental justice — uranium mining disproportionately affects Indigenous communities",
+      "What is the unresolved waste storage problem? No country has a permanent repository operating at scale",
+      "How do the plummeting costs of renewables plus storage change the economic case for new nuclear?",
+    ],
+    difficulty: 2,
+    tags: ["energy", "environment", "economics"],
+  },
+  {
+    id: "social-media-no-ban-minors",
+    category: "tech-ethics",
+    position:
+      "Banning minors from social media would cause more harm than it prevents.",
+    context:
+      "Feels counterintuitive when headlines focus on teen mental health crises, but there are real arguments about digital literacy, social connection, and enforcement costs.",
+    hints: [
+      "Consider that LGBTQ+ youth, rural teens, and those with disabilities often rely on online communities for essential support",
+      "Think about enforcement: age verification at scale requires mass identity surveillance — a cure potentially worse than the disease",
+      "What does the evidence actually show about causation vs. correlation between social media and teen mental health?",
+      "How might prohibition drive teens to unmoderated, unmonitored platforms that are actually more dangerous?",
+    ],
+    difficulty: 2,
+    tags: ["youth-safety", "digital-rights", "mental-health"],
+  },
+  {
+    id: "mandatory-office-return",
+    category: "social",
+    position:
+      "Companies are right to mandate full-time return to office for all employees.",
+    context:
+      "Easy to dismiss as backward-thinking management, but there are legitimate arguments about collaboration, mentorship, and organizational culture.",
+    hints: [
+      "Consider the mentorship and apprenticeship model — junior employees learn by osmosis and proximity to senior colleagues",
+      "Think about weak-tie networks: spontaneous hallway conversations generate cross-team innovation that Zoom can't replicate",
+      "What does the research on remote work show about career advancement disparities for remote vs. in-office workers?",
+      "How does physical presence strengthen organizational culture and trust in ways that are hard to measure but real?",
+    ],
+    difficulty: 1,
+    tags: ["labor", "management", "culture"],
+  },
+  {
+    id: "meat-consumption-tax",
+    category: "social",
+    position:
+      "Governments should impose heavy taxes on meat consumption to fight climate change and improve public health.",
+    context:
+      "Often ridiculed as 'nanny state' overreach, but there are strong environmental, public health, and economic externality arguments for pricing meat's true costs.",
+    hints: [
+      "Consider that livestock produces 14.5% of global greenhouse emissions — more than all transportation combined",
+      "Think about the externality argument: meat prices don't reflect the environmental, health, and antibiotic resistance costs society bears",
+      "How do existing 'sin taxes' on tobacco and sugar-sweetened beverages provide a precedent and effectiveness model?",
+      "What does the WHO classification of processed meat as a Group 1 carcinogen suggest about public health policy?",
+    ],
+    difficulty: 2,
+    tags: ["environment", "public-health", "policy"],
+  },
 ];
 
 export const categoryLabels: Record<SteelManScenario["category"], string> = {

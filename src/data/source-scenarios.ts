@@ -632,4 +632,196 @@ export const sourceScenarios: SourceScenario[] = [
       "Check if the Department of Defense issued a clarification or readiness report",
     ],
   },
+
+  // =============================================
+  // NEW SCENARIOS (10) — Content Mega-Pack
+  // =============================================
+
+  // --- CLICKBAIT (2) ---
+  {
+    id: 36,
+    headline:
+      "Your Bank Account Could Be DRAINED Tomorrow — Banks Aren't Telling You This",
+    source: "FinancialDoomWatch.com",
+    snippet:
+      "An anonymous insider at one of the 'Big Four' banks has revealed a critical flaw in the banking system that could wipe out savings accounts overnight. 'They know about it and they're covering it up,' the whistleblower told us exclusively.",
+    category: "clickbait",
+    categoryLabel: "Clickbait",
+    idealCredibility: 1,
+    biasNotes:
+      "Classic fear-based clickbait: unnamed 'insider,' vague conspiracy framing, no specific technical detail, and an exclusive anonymous tip with no corroboration. Designed to drive panic clicks without providing actionable or verifiable information.",
+    checkSuggestions: [
+      "Check if any legitimate financial news outlet has reported this claim",
+      "Verify whether FDIC or banking regulators have issued any alerts",
+      "Look for the supposed 'whistleblower' statement or leaked documents on credible platforms",
+    ],
+  },
+  {
+    id: 37,
+    headline:
+      "Scientists Discover Children's Brains Are SHRINKING Due to Screen Time",
+    source: "ParentAlarmNetwork.com",
+    snippet:
+      "A shocking new study reveals that children who use tablets and smartphones for more than one hour per day have measurably smaller brain volumes. One pediatrician warns, 'We are witnessing an entire generation of brain damage.'",
+    category: "clickbait",
+    categoryLabel: "Clickbait",
+    idealCredibility: 1,
+    biasNotes:
+      "Extreme language ('SHRINKING,' 'brain damage,' 'shocking') and a single unnamed pediatrician's quote. The leap from screen time correlation to 'brain shrinking' dramatically overstates any existing research. No study name, journal, or institution is cited.",
+    checkSuggestions: [
+      "Search PubMed for studies on screen time and pediatric brain volume",
+      "Check the American Academy of Pediatrics' position on screen time",
+      "Look for the specific study referenced and evaluate its methodology",
+    ],
+  },
+
+  // --- LEGITIMATE (2) ---
+  {
+    id: 38,
+    headline:
+      "Global Carbon Emissions Fell 2.1% in 2025, IEA Report Shows",
+    source: "Financial Times",
+    snippet:
+      "The International Energy Agency's annual report confirms a 2.1% decline in global CO₂ emissions last year, driven primarily by accelerated renewable energy deployment in China and the EU. The IEA's executive director cautioned that the decline remains insufficient to meet Paris Agreement targets and called for tripling clean energy investment by 2030.",
+    category: "legitimate",
+    categoryLabel: "Legitimate Breaking News",
+    idealCredibility: 5,
+    biasNotes:
+      "Reporting from a respected business newspaper citing an authoritative international institution. Includes specific data, attributes claims to named organizations, and provides both the positive finding and cautionary context. The balanced framing avoids both alarmism and complacency.",
+    checkSuggestions: [
+      "Access the IEA's report directly on their website for full methodology",
+      "Cross-reference with other emissions tracking bodies like the Global Carbon Project",
+      "Compare the 2.1% figure with the reduction rate needed for Paris Agreement compliance",
+    ],
+  },
+  {
+    id: 39,
+    headline:
+      "USDA Recalls 2.4 Million Pounds of Ground Beef Over E. Coli Contamination",
+    source: "Associated Press",
+    snippet:
+      "The U.S. Department of Agriculture's Food Safety and Inspection Service issued a Class I recall of approximately 2.4 million pounds of ground beef products from Heartland Meats, Inc. after 37 confirmed E. coli O157:H7 illnesses across 12 states. The products were distributed to retailers and food service operators between January 8 and March 15.",
+    category: "legitimate",
+    categoryLabel: "Legitimate Breaking News",
+    idealCredibility: 5,
+    biasNotes:
+      "Standard public health reporting from a major wire service. Specific figures (weight recalled, illness count, states affected), named company, precise date range, and official agency attribution. This is the type of reporting that directly serves public safety.",
+    checkSuggestions: [
+      "Verify the recall on the USDA FSIS recall archive",
+      "Check the CDC's outbreak investigation page for illness counts",
+      "Look for the specific product codes and distribution details on the FSIS notice",
+    ],
+  },
+
+  // --- SATIRE (2) ---
+  {
+    id: 40,
+    headline:
+      "Man Who Just Learned About Logical Fallacies Insufferable at Every Social Gathering",
+    source: "The Onion",
+    snippet:
+      "Local man Derek Huang, 29, has reportedly made himself unbearable at parties, family dinners, and workplace meetings after completing an online course on critical thinking. 'You just committed an appeal to authority,' Huang told his grandmother when she recommended chicken soup for a cold.",
+    category: "satire",
+    categoryLabel: "Satire",
+    idealCredibility: 2,
+    biasNotes:
+      "The Onion's classic character comedy format — a fictional person whose relatable behavior is exaggerated for humor. The joke targets the overenthusiastic application of newly learned concepts, not the concepts themselves. Ironic content for a critical thinking training app.",
+    checkSuggestions: [
+      "Recognize The Onion as a well-known satirical publication",
+      "Look for fictional character names and comedic situational details",
+      "Note the self-aware humor about logical fallacy overuse",
+    ],
+  },
+  {
+    id: 41,
+    headline:
+      "Nation's Fact-Checkers Announce They Will Now Just Start Making Stuff Up Too",
+    source: "The Babylon Bee",
+    snippet:
+      "In a joint statement, the nation's leading fact-checking organizations announced they would abandon accuracy altogether. 'Everyone else is making things up and getting millions of clicks. We've been doing this wrong,' said PolitiFact editor Janet Crane, who does not exist.",
+    category: "satire",
+    categoryLabel: "Satire",
+    idealCredibility: 2,
+    biasNotes:
+      "The Babylon Bee's political satire here plays on distrust of fact-checkers and media. The joke self-identifies as fictional ('who does not exist'). The Babylon Bee has a conservative editorial lean, and this piece reflects skepticism about institutional fact-checking.",
+    checkSuggestions: [
+      "Identify The Babylon Bee as a satirical publication with conservative leanings",
+      "Note the meta-joke: a satirical article about making things up, which itself is made up",
+      "Check whether any real fact-checking organization has made such a statement",
+    ],
+  },
+
+  // --- MISLEADING STATISTICS (2) ---
+  {
+    id: 42,
+    headline:
+      "Charter School Students Outperform Public School Peers by 20 Points on State Tests",
+    source: "ChoiceInEducation.org",
+    snippet:
+      "An analysis of state test data found that students in charter schools scored an average of 20 points higher than their public school counterparts. However, the analysis did not account for selective enrollment practices, parental involvement levels, or the fact that several charter schools in the sample had expelled low-performing students before testing periods.",
+    category: "misleading-stats",
+    categoryLabel: "Misleading Statistics",
+    idealCredibility: 2,
+    biasNotes:
+      "The headline presents raw score differences without accounting for major confounding factors. Charter schools with selective enrollment or expulsion practices produce inflated comparisons. The advocacy source has a clear interest in promoting charter schools. A fair comparison would require controlling for demographics and selection effects.",
+    checkSuggestions: [
+      "Check whether the analysis controlled for student demographics and selection effects",
+      "Look for peer-reviewed studies using randomized lottery-based comparisons",
+      "Investigate the source organization's funding and advocacy positions",
+    ],
+  },
+  {
+    id: 43,
+    headline: "Meditation Reduces Anxiety by 60%, New Study Claims",
+    source: "MindfulLivingDigest.com",
+    snippet:
+      "A study of 45 participants who completed an 8-week meditation program reported a 60% reduction in self-reported anxiety scores. The study had no control group, relied entirely on self-reported measures, and was funded by a meditation app company seeking Series B funding.",
+    category: "misleading-stats",
+    categoryLabel: "Misleading Statistics",
+    idealCredibility: 2,
+    biasNotes:
+      "Tiny sample size (45), no control group (placebo effect uncontrolled), self-reported outcomes (subject to bias), and a massive financial conflict of interest. The 60% figure sounds impressive but is essentially meaningless without a control comparison. This is marketing disguised as science.",
+    checkSuggestions: [
+      "Evaluate the study design: sample size, control group, blinding",
+      "Check who funded the research and whether they profit from positive results",
+      "Search for meta-analyses of meditation and anxiety from independent researchers",
+    ],
+  },
+
+  // --- OUT-OF-CONTEXT QUOTES (2) ---
+  {
+    id: 44,
+    headline:
+      "University President: 'Free Speech Has Gone Too Far on Campus'",
+    source: "CampusWatchdog.com",
+    snippet:
+      "At a faculty symposium on academic freedom, university president Dr. Maria Santos stated: 'Free speech has gone too far on campus — that is the argument being made by those who would silence uncomfortable research. I reject that premise entirely. This university will defend the right of scholars to pursue truth wherever it leads.'",
+    category: "out-of-context",
+    categoryLabel: "Out-of-Context Quote",
+    idealCredibility: 2,
+    biasNotes:
+      "The headline extracts words the president was quoting and rejecting, not endorsing. The full quote reveals a passionate defense of free speech and academic freedom — the exact opposite of what the headline implies. This is deliberate misattribution through selective quoting.",
+    checkSuggestions: [
+      "Read the complete quote and identify who is actually making the argument",
+      "Check the university's official position statements on academic freedom",
+      "Watch or read the full symposium proceedings for context",
+    ],
+  },
+  {
+    id: 45,
+    headline: "Teacher's Union Leader: 'We Don't Put Students First'",
+    source: "ParentAdvocateDaily.com",
+    snippet:
+      "At a national education conference, union president Marcus Thompson said: 'We don't put students first — at least, that's what our critics love to claim. But the data shows that every dollar invested in teacher retention and professional development translates directly to better student outcomes. Supporting teachers IS putting students first.'",
+    category: "out-of-context",
+    categoryLabel: "Out-of-Context Quote",
+    idealCredibility: 2,
+    biasNotes:
+      "The headline captures a phrase the speaker was quoting from critics before vigorously rebutting it. The full quote argues that supporting teachers and supporting students are aligned, not opposed. This truncation reverses the speaker's entire message.",
+    checkSuggestions: [
+      "Find the full conference speech or transcript",
+      "Note the rhetorical pattern: speaker quotes critics, then rebuts",
+      "Check whether the union has publicly responded to the headline",
+    ],
+  },
 ];
