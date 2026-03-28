@@ -3,6 +3,7 @@ import GameModes from "@/components/landing/GameModes";
 import BeltProgression from "@/components/landing/BeltProgression";
 import PricingTable from "@/components/landing/PricingTable";
 import DailyBriefCard from "@/components/landing/DailyBriefCard";
+import DailyChallengeCard from "@/components/landing/DailyChallengeCard";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
 
 export default function Home() {
@@ -20,9 +21,10 @@ export default function Home() {
 
       <Hero />
 
-      {/* Daily Challenge */}
+      {/* Daily Challenge — prominent */}
       <section className="py-12 px-6">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto space-y-4">
+          <DailyChallengeCard />
           <DailyBriefCard />
         </div>
       </section>
