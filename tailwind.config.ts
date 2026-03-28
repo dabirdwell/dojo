@@ -22,10 +22,12 @@ const config: Config = {
         belt: {
           white: "#E8E8E8",
           yellow: "#F5D442",
+          orange: "#FF9800",
           green: "#4CAF50",
           blue: "#2196F3",
           purple: "#9C27B0",
           brown: "#8D6E63",
+          red: "#F44336",
           black: "#1A1A1A",
         },
       },

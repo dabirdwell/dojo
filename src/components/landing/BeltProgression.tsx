@@ -1,5 +1,25 @@
 import { beltLevels } from "@/data/fallacies";
 
+function ShieldIcon({ color, size = 64 }: { color: string; size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"
+        fill={`${color}20`}
+        stroke={color}
+        strokeWidth="1.5"
+      />
+      <circle cx="12" cy="11" r="4" fill={color} opacity="0.8" />
+    </svg>
+  );
+}
+
 export default function BeltProgression() {
   return (
     <section className="py-24 px-6">
@@ -8,7 +28,7 @@ export default function BeltProgression() {
           Earn Your Rank
         </h2>
         <p className="text-dojo-muted text-center mb-16 max-w-xl mx-auto">
-          Martial arts-inspired progression. Belts are earned through mastery,
+          Martial arts-inspired progression. Nine belts earned through mastery,
           never rushed. ~6 months of daily practice to reach Black Belt.
         </p>
 
@@ -19,17 +39,15 @@ export default function BeltProgression() {
           <div className="space-y-6">
             {beltLevels.map((belt, i) => (
               <div key={belt.name} className="relative flex items-start gap-6">
-                {/* Belt circle */}
+                {/* Shield icon */}
                 <div className="relative z-10 flex-shrink-0">
                   <div
-                    className="w-16 h-16 rounded-full border-4 flex items-center justify-center text-xs font-bold"
+                    className="w-16 h-16 flex items-center justify-center"
                     style={{
-                      borderColor: belt.color,
-                      backgroundColor: `${belt.color}15`,
-                      color: belt.name === "Black Belt" ? "#f0e6d6" : belt.color,
+                      filter: `drop-shadow(0 0 8px ${belt.color}40)`,
                     }}
                   >
-                    {belt.fallacies}
+                    <ShieldIcon color={belt.color} size={56} />
                   </div>
                 </div>
 
@@ -43,7 +61,7 @@ export default function BeltProgression() {
                       className="text-xs px-2 py-0.5 rounded-full font-medium"
                       style={{
                         backgroundColor: `${belt.color}20`,
-                        color: belt.color,
+                        color: belt.name === "Black Belt" ? "#f0e6d6" : belt.color,
                         border: `1px solid ${belt.color}40`,
                       }}
                     >

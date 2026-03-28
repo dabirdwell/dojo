@@ -1,0 +1,15 @@
+0000000000000000000000000000000000000000 3691ff6c84bfc3eec11e285b978519122ffe7c6a David Birdwell <david@birdwell.com> 1774156173 -0500	commit (initial): Initial commit from Create Next App
+3691ff6c84bfc3eec11e285b978519122ffe7c6a 81d7081709db2d59acc60bd485e57ecac4ab7bc4 David Birdwell <david@birdwell.com> 1774156425 -0500	commit: feat: Dojo app scaffold with landing page and Fallacy Flash game
+81d7081709db2d59acc60bd485e57ecac4ab7bc4 edc4ed31e35b26b769a747d235fec9623e57beaa David Birdwell <david@birdwell.com> 1774159199 -0500	commit: feat: add Steel Man game mode with AI-powered argument evaluation
+edc4ed31e35b26b769a747d235fec9623e57beaa 32f5c87d81c438a1f85e15acf0c622517aa9a3db David Birdwell <david@birdwell.com> 1774159275 -0500	commit: feat: add Source Check game mode with 20 scenarios and AI evaluation
+32f5c87d81c438a1f85e15acf0c622517aa9a3db b8b52dc65db44069302c78c09af3b44d28a40b08 David Birdwell <david@birdwell.com> 1774160096 -0500	commit: feat: add Daily Brief game mode with 7 days of scenarios and streak tracking
+b8b52dc65db44069302c78c09af3b44d28a40b08 f1893335453752038e3d8efb94f33d4ea91aa2e4 David Birdwell <david@birdwell.com> 1774160528 -0500	commit: feat: add belt progression system with XP tracking and profile page
+f1893335453752038e3d8efb94f33d4ea91aa2e4 6d8a5513627b7389770168289cb2c1377a07f56c David Birdwell <david@birdwell.com> 1774199730 -0500	commit: Add MIT LICENSE + polish README for GitHub presence
+6d8a5513627b7389770168289cb2c1377a07f56c 9dde57262ef11a4d744e1f035702377425d32c4b David <david@MacBook-Pro.local> 1774328125 -0500	commit: Fix source-check route: remove space from directory name
+9dde57262ef11a4d744e1f035702377425d32c4b 9bb37265cb8e49454e099c59c8d659b98fd1fb63 David <david@mac.gpn.globalpay.com> 1774379282 -0500	commit: content: Add 49 new scenarios across 3 game modes
+9bb37265cb8e49454e099c59c8d659b98fd1fb63 82e5036dbc51f45242c7c7d7a72a9621dd53d9f8 David <david@mac.gpn.globalpay.com> 1774383198 -0500	commit: content: 15 Steel Man prompts + belt progression polish
+82e5036dbc51f45242c7c7d7a72a9621dd53d9f8 ee1b868049429a4aa548607ac541ba434a3988ce David Birdwell <davidbirdwell@gmail.com> 1774383198 -0500	filter-branch: rewrite
+ee1b868049429a4aa548607ac541ba434a3988ce 9de752118ff8dabd25f8eb7d070c8e609cd389cd David Birdwell <davidbirdwell@gmail.com> 1774485050 -0500	commit: fix: Add civic-check to GameMode type and default stats initialization
+9de752118ff8dabd25f8eb7d070c8e609cd389cd 5129ad3e118733d0d1ad3136fcc1d8340ef3f1ba David Birdwell <davidbirdwell@gmail.com> 1774485088 -0500	reset: moving to origin/main
+5129ad3e118733d0d1ad3136fcc1d8340ef3f1ba 578873b00f24624cf47fdc3576c2b99d2bd63d22 David Birdwell <davidbirdwell@gmail.com> 1774582003 -0500	commit: cleanup: remove iCloud phantom duplicate
+578873b00f24624cf47fdc3576c2b99d2bd63d22 5052107578843ba07a820243466283ccd48e37cb David Birdwell <davidbirdwell@gmail.com> 1774661519 -0500	commit: Content mega-pack: 42 new scenarios across game modes

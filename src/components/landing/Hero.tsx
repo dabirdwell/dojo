@@ -64,7 +64,7 @@ export default function Hero() {
           {[
             { value: "50", label: "Fallacies" },
             { value: "6", label: "Game Modes" },
-            { value: "6", label: "Belt Ranks" },
+            { value: "9", label: "Belt Ranks" },
           ].map((stat) => (
             <div key={stat.label}>
               <div className="text-2xl sm:text-3xl font-bold text-dojo-accent">

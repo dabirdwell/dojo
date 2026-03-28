@@ -10,7 +10,7 @@ export interface Fallacy {
   name: string;
   aliases: string[];
   definition: string;
-  belt: "white" | "yellow" | "green" | "blue" | "brown" | "black";
+  belt: "white" | "yellow" | "orange" | "green" | "blue" | "purple" | "brown" | "red" | "black";
   examples: FallacyExample[];
 }
 
@@ -1039,10 +1039,13 @@ export const fallacies: Fallacy[] = [
 ];
 
 export const beltLevels = [
-  { name: "White Belt", color: "#E8E8E8", fallacies: 10, label: "Fundamentals" },
-  { name: "Yellow Belt", color: "#F5D442", fallacies: 18, label: "Foundations" },
-  { name: "Green Belt", color: "#4CAF50", fallacies: 26, label: "Intermediate" },
-  { name: "Blue Belt", color: "#2196F3", fallacies: 34, label: "Advanced" },
-  { name: "Brown Belt", color: "#8D6E63", fallacies: 42, label: "Expert" },
+  { name: "White Belt", color: "#E8E8E8", fallacies: 6, label: "Fundamentals" },
+  { name: "Yellow Belt", color: "#F5D442", fallacies: 12, label: "Foundations" },
+  { name: "Orange Belt", color: "#FF9800", fallacies: 18, label: "Developing" },
+  { name: "Green Belt", color: "#4CAF50", fallacies: 24, label: "Intermediate" },
+  { name: "Blue Belt", color: "#2196F3", fallacies: 30, label: "Advanced" },
+  { name: "Purple Belt", color: "#9C27B0", fallacies: 36, label: "Specialist" },
+  { name: "Brown Belt", color: "#795548", fallacies: 42, label: "Expert" },
+  { name: "Red Belt", color: "#F44336", fallacies: 46, label: "Elite" },
   { name: "Black Belt", color: "#1A1A1A", fallacies: 50, label: "Master" },
 ] as const;

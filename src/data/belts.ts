@@ -8,11 +8,14 @@ export interface Belt {
 
 export const belts: Belt[] = [
   { name: "White Belt", color: "#E8E8E8", minXP: 0, maxXP: 49, label: "Beginner" },
-  { name: "Yellow Belt", color: "#F5D442", minXP: 50, maxXP: 149, label: "Foundations" },
-  { name: "Green Belt", color: "#4CAF50", minXP: 150, maxXP: 299, label: "Intermediate" },
-  { name: "Blue Belt", color: "#2196F3", minXP: 300, maxXP: 499, label: "Advanced" },
-  { name: "Brown Belt", color: "#795548", minXP: 500, maxXP: 999, label: "Expert" },
-  { name: "Black Belt", color: "#1A1A1A", minXP: 1000, maxXP: null, label: "Master" },
+  { name: "Yellow Belt", color: "#F5D442", minXP: 50, maxXP: 124, label: "Foundations" },
+  { name: "Orange Belt", color: "#FF9800", minXP: 125, maxXP: 224, label: "Developing" },
+  { name: "Green Belt", color: "#4CAF50", minXP: 225, maxXP: 374, label: "Intermediate" },
+  { name: "Blue Belt", color: "#2196F3", minXP: 375, maxXP: 549, label: "Advanced" },
+  { name: "Purple Belt", color: "#9C27B0", minXP: 550, maxXP: 749, label: "Specialist" },
+  { name: "Brown Belt", color: "#795548", minXP: 750, maxXP: 999, label: "Expert" },
+  { name: "Red Belt", color: "#F44336", minXP: 1000, maxXP: 1499, label: "Elite" },
+  { name: "Black Belt", color: "#1A1A1A", minXP: 1500, maxXP: null, label: "Master" },
 ];
 
 export function getBeltForXP(xp: number): Belt {
