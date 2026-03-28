@@ -19,6 +19,7 @@ const MODE_LABELS: Record<GameMode, { name: string; icon: string }> = {
   "daily-brief": { name: "Daily Brief", icon: "newspaper" },
   "civic-check": { name: "Civic Check", icon: "landmark" },
   socratic: { name: "Socratic", icon: "question" },
+  "real-world": { name: "Real World", icon: "globe" },
 };
 
 export default function ProfileView() {

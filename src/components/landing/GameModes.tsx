@@ -94,6 +94,18 @@ const gameModes = [
       "Builds policy literacy and close-reading skills",
     ],
   },
+  {
+    name: "Real World",
+    icon: "🌍",
+    href: "/play/real-world",
+    description:
+      "Practice with real-world scenarios: spot fallacies in political claims, evaluate media sources, and steelman controversial positions. Mixed-format rounds keep you sharp.",
+    features: [
+      "30 scenarios across fallacy spotting, source evaluation & steelmanning",
+      "Anonymized examples from AI policy, climate, healthcare & economics",
+      "Score tracking with streak counter",
+    ],
+  },
 ];
 
 export default function GameModes() {
@@ -101,7 +113,7 @@ export default function GameModes() {
     <section id="game-modes" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          Eight Ways to Train
+          Nine Ways to Train
         </h2>
         <p className="text-dojo-muted text-center mb-16 max-w-xl mx-auto">
           Each mode targets a different critical thinking skill. Together, they
