@@ -1,4 +1,5 @@
 import Hero from "@/components/landing/Hero";
+import HowItWorks from "@/components/landing/HowItWorks";
 import GameModes from "@/components/landing/GameModes";
 import BeltProgression from "@/components/landing/BeltProgression";
 import PricingTable from "@/components/landing/PricingTable";
@@ -21,7 +22,11 @@ export default function Home() {
 
       <Hero />
 
+      <div className="h-px bg-gradient-to-r from-transparent via-dojo-border to-transparent" />
+      <HowItWorks />
+
       {/* Daily Challenge — prominent */}
+      <div className="h-px bg-gradient-to-r from-transparent via-dojo-border to-transparent" />
       <section className="py-12 px-6">
         <div className="max-w-2xl mx-auto space-y-4">
           <DailyChallengeCard />
@@ -42,18 +47,20 @@ export default function Home() {
       <footer className="py-12 px-6 border-t border-dojo-border">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-dojo-muted text-sm">
-            A Brain Mastery app by{" "}
+            Part of the{" "}
+            <span className="text-dojo-text font-medium">Brain Mastery</span>{" "}
+            series
+          </p>
+          <p className="text-dojo-muted/80 text-sm mt-2">
+            Built by{" "}
             <a
               href="https://humanityandai.com"
               className="text-dojo-accent hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Humanity &amp; AI
+              humanityandai.com
             </a>
-          </p>
-          <p className="text-dojo-muted/60 text-xs mt-2">
-            Train your mind. Defend your thinking.
           </p>
         </div>
       </footer>

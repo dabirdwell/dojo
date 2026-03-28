@@ -1,76 +1,116 @@
 import Link from "next/link";
+import { belts } from "@/data/belts";
+
+const modeProgression = [
+  { name: "Fallacy Flash", icon: "⚡", description: "Spot the error" },
+  { name: "Source Check", icon: "🔍", description: "Evaluate claims" },
+  { name: "Steelman", icon: "🛡", description: "Build stronger arguments" },
+  { name: "Socratic", icon: "🏛", description: "Question assumptions" },
+  { name: "Competitive", icon: "🥊", description: "Test under pressure" },
+];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center px-6">
+    <section className="relative min-h-[90vh] flex items-center justify-center px-6 py-16">
       {/* Background accent glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-dojo-accent/5 blur-[120px]" />
       </div>
 
-      <div className="relative text-center max-w-3xl mx-auto">
+      <div className="relative text-center max-w-4xl mx-auto">
         <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-dojo-accent/30 bg-dojo-accent/10 text-dojo-accent text-sm font-medium tracking-wide">
           Brain Mastery Series
         </div>
 
-        <h1 className="text-5xl sm:text-7xl font-bold tracking-tight mb-6">
-          <span className="text-dojo-text">Dojo</span>
+        <h1 className="text-5xl sm:text-7xl font-bold tracking-tight mb-4">
+          <span className="text-dojo-text">Train Your Thinking</span>
         </h1>
 
-        <p className="text-xl sm:text-2xl text-dojo-muted mb-4 font-light">
-          Train your mind. Defend your thinking.
+        <p className="text-xl sm:text-2xl text-dojo-muted mb-12 font-light">
+          Five modes. One sharper mind.
         </p>
 
-        <p className="text-base text-dojo-muted/80 max-w-xl mx-auto mb-10 leading-relaxed">
-          A gamified critical thinking trainer that makes fallacy detection,
-          argument construction, and source evaluation second nature — framed as
-          martial arts training for the mind.
-        </p>
+        {/* Mode progression visual */}
+        <div className="mb-14">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+            {modeProgression.map((mode, i) => (
+              <div key={mode.name} className="flex items-center gap-2 sm:gap-3">
+                <div className="flex flex-col items-center gap-1.5">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-dojo-card border border-dojo-border flex items-center justify-center text-2xl sm:text-3xl hover:border-dojo-accent/40 transition-colors">
+                    {mode.icon}
+                  </div>
+                  <span className="text-[10px] sm:text-xs text-dojo-muted font-medium whitespace-nowrap">
+                    {mode.name}
+                  </span>
+                </div>
+                {i < modeProgression.length - 1 && (
+                  <span className="text-dojo-border text-lg sm:text-xl mb-5">→</span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        {/* CTA */}
+        <div className="mb-14">
           <Link
             href="/play/fallacy-flash"
-            className="px-8 py-3.5 bg-dojo-accent hover:bg-dojo-accent-hover text-white rounded-lg font-semibold transition-colors text-lg"
+            className="inline-block px-10 py-4 bg-dojo-accent hover:bg-dojo-accent-hover text-white rounded-lg font-semibold transition-colors text-lg shadow-lg shadow-dojo-accent/20"
           >
             Start Training
           </Link>
-          <a
-            href="#game-modes"
-            className="px-8 py-3.5 border border-dojo-border hover:border-dojo-muted text-dojo-muted hover:text-dojo-text rounded-lg font-semibold transition-colors text-lg"
-          >
-            Explore Modes
-          </a>
         </div>
 
-        {/* Quick nav */}
-        <div className="mt-6 flex gap-4 justify-center">
-          <Link
-            href="/play/daily"
-            className="text-sm text-dojo-muted hover:text-dojo-accent transition-colors flex items-center gap-1.5"
-          >
-            <span>📅</span> Daily Challenge
-          </Link>
-          <span className="text-dojo-border">|</span>
-          <Link
-            href="/leaderboard"
-            className="text-sm text-dojo-muted hover:text-dojo-accent transition-colors flex items-center gap-1.5"
-          >
-            <span>🏆</span> Leaderboard
-          </Link>
+        {/* Belt progression preview */}
+        <div className="mb-14">
+          <p className="text-sm text-dojo-muted mb-4 font-medium uppercase tracking-wider">
+            Belt Progression
+          </p>
+          <div className="flex items-center justify-center gap-1 sm:gap-2 flex-wrap">
+            {belts.map((belt, i) => (
+              <div key={belt.name} className="flex items-center gap-1 sm:gap-2">
+                <div className="flex flex-col items-center gap-1">
+                  <div
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 flex items-center justify-center"
+                    style={{
+                      borderColor: belt.color,
+                      backgroundColor: `${belt.color}15`,
+                      boxShadow: `0 0 8px ${belt.color}30`,
+                    }}
+                  >
+                    <div
+                      className="w-3 h-3 sm:w-4 sm:h-4 rounded-full"
+                      style={{ backgroundColor: belt.color }}
+                    />
+                  </div>
+                  <span className="text-[9px] sm:text-[10px] text-dojo-muted whitespace-nowrap">
+                    {belt.name.split(" ")[0]}
+                  </span>
+                  <span className="text-[8px] sm:text-[9px] text-dojo-muted/60">
+                    {belt.minXP} XP
+                  </span>
+                </div>
+                {i < belts.length - 1 && (
+                  <span className="text-dojo-border/50 text-xs mb-6">→</span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Stat bar */}
-        <div className="mt-16 flex justify-center gap-8 sm:gap-16 text-center">
+        {/* Quick stats */}
+        <div className="flex justify-center gap-6 sm:gap-12 text-center flex-wrap">
           {[
-            { value: "50", label: "Fallacies" },
-            { value: "6", label: "Game Modes" },
-            { value: "9", label: "Belt Ranks" },
+            { value: "200+", label: "Scenarios" },
+            { value: "30", label: "Real-World Challenges" },
+            { value: "Daily", label: "Challenges" },
+            { value: "AI", label: "Argument Builder" },
           ].map((stat) => (
             <div key={stat.label}>
-              <div className="text-2xl sm:text-3xl font-bold text-dojo-accent">
+              <div className="text-xl sm:text-2xl font-bold text-dojo-accent">
                 {stat.value}
               </div>
-              <div className="text-sm text-dojo-muted">{stat.label}</div>
+              <div className="text-xs sm:text-sm text-dojo-muted">{stat.label}</div>
             </div>
           ))}
         </div>
