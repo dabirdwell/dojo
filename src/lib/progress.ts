@@ -36,6 +36,7 @@ function defaultProgress(): ProgressData {
       "source-check": { ...defaultStats },
       "daily-brief": { ...defaultStats },
       "civic-check": { ...defaultStats },
+      socratic: { ...defaultStats },
     },
   };
 }

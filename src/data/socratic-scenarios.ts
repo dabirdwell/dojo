@@ -10,6 +10,8 @@ export interface SocraticChain {
   initialClaim: string;
   context: string;
   questions: SocraticQuestion[];
+  strongestQuestionIndex: number;
+  strongestExplanation: string;
   finalInsight: string;
   difficulty: 1 | 2 | 3;
   tags: string[];
@@ -57,6 +59,9 @@ export const socraticChains: SocraticChain[] = [
           "What are the consequences of a society that attributes all outcomes to individual effort?",
       },
     ],
+    strongestQuestionIndex: 3,
+    strongestExplanation:
+      "This question is the most penetrating because it reveals the uncomfortable logical conclusion: if success equals effort, then failure must equal laziness — a reductio ad absurdum that forces direct confrontation with the claim's implications.",
     finalInsight:
       "Hard work matters, but it operates within systems of opportunity, luck, and structural advantage. Recognizing this doesn't devalue effort — it leads to more accurate and compassionate judgments about both success and failure.",
     difficulty: 1,
@@ -102,6 +107,9 @@ export const socraticChains: SocraticChain[] = [
           "If we can choose, what criteria should guide which technologies we embrace and which we resist?",
       },
     ],
+    strongestQuestionIndex: 2,
+    strongestExplanation:
+      "This question cuts deepest because it exposes who actually benefits and who bears the cost — revealing that 'better for everyone' hides a distributional assumption that often doesn't hold.",
     finalInsight:
       "Technology is a powerful tool, but 'progress' is not automatic or universal. Every technology embodies tradeoffs, distributes benefits unevenly, and reflects the values of those who create and deploy it. Critical engagement — not blanket optimism or pessimism — leads to better outcomes.",
     difficulty: 1,
@@ -148,6 +156,9 @@ export const socraticChains: SocraticChain[] = [
           "How do concepts like constitutional amendments, supermajority requirements, and environmental law try to address this?",
       },
     ],
+    strongestQuestionIndex: 0,
+    strongestExplanation:
+      "This question is the most penetrating because it immediately surfaces the classic 'tyranny of the majority' problem — a direct counter-example that forces a distinction between majority rule and justice.",
     finalInsight:
       "Democracy is more than majority rule — it's a system of self-governance that balances majority decision-making with minority protections, deliberative processes, and intergenerational responsibility. Reducing democracy to 'the majority decides' misses most of what makes democratic governance valuable.",
     difficulty: 2,
@@ -194,6 +205,9 @@ export const socraticChains: SocraticChain[] = [
           "What safeguards would be necessary to make any speech restriction trustworthy and accountable?",
       },
     ],
+    strongestQuestionIndex: 3,
+    strongestExplanation:
+      "This question is the most devastating because it reveals an epistemic impossibility built into censorship itself: from inside a censored system, you cannot evaluate what you're missing — making the censor's decisions fundamentally uncheckable.",
     finalInsight:
       "The impulse to censor harmful speech comes from a good place — wanting to prevent genuine suffering. But the mechanics of censorship create dangerous concentrations of power, historical track records show frequent abuse, and the suppression of ideas often backfires. The challenge is finding ways to reduce genuine harm without creating tools of control that can be turned against the vulnerable.",
     difficulty: 3,
@@ -240,6 +254,9 @@ export const socraticChains: SocraticChain[] = [
           "If the original reason for a tradition no longer holds, should we find new reasons, modify it, or let it go?",
       },
     ],
+    strongestQuestionIndex: 0,
+    strongestExplanation:
+      "This question is the most penetrating because it provides an immediate, undeniable counter-example — slavery, child labor, denying women the vote — that directly disproves the claim that longevity confers value.",
     finalInsight:
       "Traditions carry real value — community, continuity, identity, accumulated wisdom. But 'it has lasted' is not the same as 'it is good.' The most robust traditions are those that can withstand scrutiny, adapt to new understanding, and survive not because they're unquestioned but because they remain genuinely valuable when questioned.",
     difficulty: 1,

@@ -40,7 +40,7 @@ export function getProgressToNextBelt(xp: number): number {
   return Math.min(100, Math.round((progress / range) * 100));
 }
 
-export type GameMode = "fallacy-flash" | "steelman" | "source-check" | "daily-brief" | "civic-check";
+export type GameMode = "fallacy-flash" | "steelman" | "source-check" | "daily-brief" | "civic-check" | "socratic";
 
 export const XP_AWARDS: Record<GameMode, { base: number; description: string }> = {
   "fallacy-flash": { base: 10, description: "10 XP per correct + 25 bonus" },
@@ -48,4 +48,5 @@ export const XP_AWARDS: Record<GameMode, { base: number; description: string }> 
   "source-check": { base: 15, description: "Up to 15 XP per source analyzed" },
   "daily-brief": { base: 40, description: "Up to 40 XP per perfect day" },
   "civic-check": { base: 15, description: "15 XP per correct + 30 policy bonus" },
+  socratic: { base: 15, description: "15 XP per correct + 25 insight bonus" },
 };

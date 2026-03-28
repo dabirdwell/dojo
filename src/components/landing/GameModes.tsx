@@ -71,8 +71,20 @@ const gameModes = [
     ],
   },
   {
-    name: "Civic Check",
+    name: "Socratic",
     icon: "🏛",
+    href: "/play/socratic",
+    description:
+      "Examine common beliefs through Socratic questioning. Read a thesis, then identify which of four probing questions most powerfully challenges the claim.",
+    features: [
+      "5 chains across meritocracy, tech, democracy, speech & tradition",
+      "Reveals hidden assumptions and uncomfortable conclusions",
+      "Expected insights and follow-up questions after each round",
+    ],
+  },
+  {
+    name: "Civic Check",
+    icon: "📋",
     href: "/play/civic-check",
     description:
       "Read real policy proposal summaries and identify what a bill actually does — versus what it claims, how it's commonly misread, or what its opponents say.",
@@ -89,7 +101,7 @@ export default function GameModes() {
     <section id="game-modes" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          Seven Ways to Train
+          Eight Ways to Train
         </h2>
         <p className="text-dojo-muted text-center mb-16 max-w-xl mx-auto">
           Each mode targets a different critical thinking skill. Together, they
