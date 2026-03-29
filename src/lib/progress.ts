@@ -81,6 +81,12 @@ export function awardXP(
   progress.stats[mode].totalQuestions += total;
   progress.stats[mode].xpEarned += xp;
   saveProgress(progress);
+
+  // Notify listeners (achievement system)
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new Event("dojo-progress-updated"));
+  }
+
   const currentBelt = getBeltForXP(progress.totalXP);
   const beltChanged = previousBelt.name !== currentBelt.name;
   return {

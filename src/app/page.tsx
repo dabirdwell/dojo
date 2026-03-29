@@ -6,6 +6,7 @@ import PricingTable from "@/components/landing/PricingTable";
 import DailyBriefCard from "@/components/landing/DailyBriefCard";
 import DailyChallengeCard from "@/components/landing/DailyChallengeCard";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
+import AchievementNavLink from "@/components/achievements/AchievementNavLink";
 
 export default function Home() {
   return (
@@ -16,7 +17,10 @@ export default function Home() {
           <span className="text-sm font-bold text-dojo-text tracking-wide">
             Dojo
           </span>
-          <BeltBadge />
+          <div className="flex items-center gap-4">
+            <AchievementNavLink />
+            <BeltBadge />
+          </div>
         </div>
       </nav>
 

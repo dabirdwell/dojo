@@ -17,6 +17,7 @@ export interface StreakData {
   current: number;
   best: number;
   lastCompletedDate: string;
+  total: number;
 }
 
 export interface DailyData {
@@ -132,9 +133,12 @@ export function getDailySteelmanScenario(): SteelManScenario {
 export function loadStreak(): StreakData {
   try {
     const raw = localStorage.getItem(STREAK_KEY);
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const data = JSON.parse(raw);
+      return { current: 0, best: 0, lastCompletedDate: "", total: 0, ...data };
+    }
   } catch {}
-  return { current: 0, best: 0, lastCompletedDate: "" };
+  return { current: 0, best: 0, lastCompletedDate: "", total: 0 };
 }
 
 function saveStreak(data: StreakData): void {
@@ -181,7 +185,14 @@ export function updateStreak(): StreakData {
 
   streak.lastCompletedDate = today;
   streak.best = Math.max(streak.best, streak.current);
+  streak.total = (streak.total ?? 0) + 1;
   saveStreak(streak);
+
+  // Notify listeners (achievement system)
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new Event("dojo-progress-updated"));
+  }
+
   return streak;
 }
 

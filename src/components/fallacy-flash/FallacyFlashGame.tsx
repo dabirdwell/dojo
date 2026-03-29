@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useCallback, useMemo, useEffect } from "react";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { fallacies, type FallacyExample } from "@/data/fallacies";
 import { type Belt } from "@/data/belts";
 import { awardXP } from "@/lib/progress";
+import { recordConsecutiveFast, recordPerfectRound } from "@/lib/achievements";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
 import BeltUpCelebration from "@/components/belt-up/BeltUpCelebration";
 import ShareScore from "@/components/share-score/ShareScore";
@@ -39,11 +40,33 @@ export default function FallacyFlashGame() {
   const [revealed, setRevealed] = useState(false);
   const [finished, setFinished] = useState(false);
 
+  // Speed tracking for Speed Demon achievement
+  const questionStartTimeRef = useRef(Date.now());
+  const consecutiveFastRef = useRef(0);
+  const maxConsecutiveFastRef = useRef(0);
+
+  useEffect(() => {
+    questionStartTimeRef.current = Date.now();
+  }, [currentIndex]);
+
   const current = questions[currentIndex];
 
   const handleSelect = useCallback(
     (option: string) => {
       if (revealed) return;
+      const elapsed = (Date.now() - questionStartTimeRef.current) / 1000;
+      const isCorrectAnswer = option === current.example.correctAnswer;
+
+      if (isCorrectAnswer && elapsed < 5) {
+        consecutiveFastRef.current += 1;
+        maxConsecutiveFastRef.current = Math.max(
+          maxConsecutiveFastRef.current,
+          consecutiveFastRef.current
+        );
+      } else {
+        consecutiveFastRef.current = 0;
+      }
+
       setAnswers((prev) => {
         const next = [...prev];
         next[currentIndex] = option;
@@ -51,7 +74,7 @@ export default function FallacyFlashGame() {
       });
       setRevealed(true);
     },
-    [currentIndex, revealed]
+    [currentIndex, revealed, current.example.correctAnswer]
   );
 
   const handleNext = useCallback(() => {
@@ -87,6 +110,10 @@ export default function FallacyFlashGame() {
       if (result.beltChanged && result.newBelt) {
         setEarnedBelt(result.newBelt);
       }
+      // Achievement tracking
+      recordConsecutiveFast(maxConsecutiveFastRef.current);
+      if (score === questions.length) recordPerfectRound();
+
       setXpAwarded(true);
     }
   }, [finished, xpAwarded, score, questions.length]);

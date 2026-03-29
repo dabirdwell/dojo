@@ -4,6 +4,7 @@ import { useState, useCallback, useMemo, useEffect } from "react";
 import { socraticChains, type SocraticChain } from "@/data/socratic-scenarios";
 import { type Belt } from "@/data/belts";
 import { awardXP } from "@/lib/progress";
+import { recordPerfectRound } from "@/lib/achievements";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
 import BeltUpCelebration from "@/components/belt-up/BeltUpCelebration";
 import ShareScore from "@/components/share-score/ShareScore";
@@ -90,6 +91,9 @@ export default function SocraticGame() {
       if (result.beltChanged && result.newBelt) {
         setEarnedBelt(result.newBelt);
       }
+      // Achievement tracking
+      if (score === rounds.length) recordPerfectRound();
+
       setXpAwarded(true);
     }
   }, [finished, xpAwarded, score, rounds.length]);

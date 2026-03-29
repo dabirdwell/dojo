@@ -4,6 +4,7 @@ import { useState, useCallback, useMemo, useEffect } from "react";
 import { getMixedSet } from "@/data/real-world-scenarios";
 import { type Belt } from "@/data/belts";
 import { awardXP } from "@/lib/progress";
+import { recordScenariosCompleted, recordPerfectRound } from "@/lib/achievements";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
 import BeltUpCelebration from "@/components/belt-up/BeltUpCelebration";
 import ShareScore from "@/components/share-score/ShareScore";
@@ -170,6 +171,11 @@ export default function RealWorldGame() {
       const newStreak = streak + 1;
       setStreak(newStreak);
       saveStreak(newStreak);
+
+      // Achievement tracking
+      recordScenariosCompleted(scenarios.map((s) => s.id));
+      if (score === scenarios.length) recordPerfectRound();
+
       setXpAwarded(true);
     }
   }, [finished, xpAwarded, score, scenarios.length, streak]);
