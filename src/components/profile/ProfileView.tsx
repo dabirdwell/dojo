@@ -21,6 +21,7 @@ const MODE_LABELS: Record<GameMode, { name: string; icon: string }> = {
   "civic-check": { name: "Civic Check", icon: "landmark" },
   socratic: { name: "Socratic", icon: "question" },
   "real-world": { name: "Real World", icon: "globe" },
+  "argument-map": { name: "Argument Map", icon: "map" },
 };
 
 export default function ProfileView() {

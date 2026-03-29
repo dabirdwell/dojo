@@ -38,6 +38,7 @@ function defaultProgress(): ProgressData {
       "civic-check": { ...defaultStats },
       socratic: { ...defaultStats },
       "real-world": { ...defaultStats },
+      "argument-map": { ...defaultStats },
     },
   };
 }

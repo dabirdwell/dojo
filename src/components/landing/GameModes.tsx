@@ -36,6 +36,18 @@ const gameModes = [
     ],
   },
   {
+    name: "Argument Map",
+    icon: "🗺️",
+    href: "/play/argument-map",
+    description:
+      "Visually decompose arguments into claims, premises, and evidence — then draw the connections. The single highest-impact critical thinking technique (0.70 SD gain).",
+    features: [
+      "SVG argument tree builds as you play",
+      "Identify claims, premises, evidence & assumptions",
+      "AI-scored at Green belt and above",
+    ],
+  },
+  {
     name: "Debate Dojo",
     icon: "🥊",
     description:
@@ -113,7 +125,7 @@ export default function GameModes() {
     <section id="game-modes" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          Nine Ways to Train
+          Ten Ways to Train
         </h2>
         <p className="text-dojo-muted text-center mb-16 max-w-xl mx-auto">
           Each mode targets a different critical thinking skill. Together, they

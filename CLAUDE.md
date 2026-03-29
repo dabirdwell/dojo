@@ -24,6 +24,7 @@ npm run build
 - `/play/source-check/` — Source evaluation (uses Anthropic API)
 - `/play/steelman/` — Steel man arguments (uses Anthropic API)
 - `/play/civic-check/` — Civic policy analysis
+- `/play/argument-map/` — Visual argument mapping (highest-impact technique)
 - `/play/real-world/` — Real-world practice scenarios
 - `/achievements/` — Achievement system
 - `/leaderboard/` — Score rankings
