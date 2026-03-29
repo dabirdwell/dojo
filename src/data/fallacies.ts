@@ -727,7 +727,7 @@ export const fallacies: Fallacy[] = [
     aliases: ["Appeal to Hypocrisy", "You Too Fallacy"],
     definition:
       "Dismissing someone's argument by accusing them of acting inconsistently with their own claim, rather than addressing the argument itself.",
-    belt: "green",
+    belt: "orange",
     examples: [
       {
         argument:
@@ -784,7 +784,7 @@ export const fallacies: Fallacy[] = [
     aliases: ["Post Hoc", "Correlation vs. Causation", "Non Causa Pro Causa"],
     definition:
       "Assuming that because two things are correlated or one followed the other, one must have caused the other.",
-    belt: "blue",
+    belt: "purple",
     examples: [
       {
         argument:
@@ -846,7 +846,7 @@ export const fallacies: Fallacy[] = [
     aliases: ["Naturalistic Fallacy", "Natural is Better"],
     definition:
       "Arguing that something is good because it is natural, or bad because it is unnatural.",
-    belt: "blue",
+    belt: "purple",
     examples: [
       {
         argument:
@@ -970,7 +970,7 @@ export const fallacies: Fallacy[] = [
     aliases: ["Throwing Good Money After Bad", "Concorde Fallacy"],
     definition:
       "Continuing a course of action because of previously invested resources (time, money, effort), even when it's no longer rational to do so.",
-    belt: "brown",
+    belt: "red",
     examples: [
       {
         argument:
@@ -1006,7 +1006,7 @@ export const fallacies: Fallacy[] = [
     aliases: ["Complex Question", "Plurium Interrogationum"],
     definition:
       "Asking a question that contains an unjustified assumption, making any direct answer an admission of that assumption.",
-    belt: "brown",
+    belt: "red",
     examples: [
       {
         argument:
@@ -1033,6 +1033,334 @@ export const fallacies: Fallacy[] = [
         ],
         explanation:
           "The question embeds the unproven claim that the policy was intentionally designed to harm the middle class, forcing any answer to accept that framing.",
+      },
+    ],
+  },
+  // --- Green Belt: Post Hoc ---
+  {
+    id: "post_hoc",
+    name: "Post Hoc",
+    aliases: ["Post Hoc Ergo Propter Hoc", "After Therefore Because"],
+    definition:
+      "Assuming that because one event followed another, the first event caused the second.",
+    belt: "green",
+    examples: [
+      {
+        argument:
+          "I wore my lucky socks and we won the game — the socks must be why we won.",
+        correctAnswer: "Post Hoc",
+        options: ["Hasty Generalization", "Post Hoc", "Bandwagon", "Appeal to Emotion"],
+        explanation:
+          "Winning the game after wearing certain socks is a coincidence — the socks had no causal power over the outcome.",
+      },
+      {
+        argument:
+          "The city installed new streetlights last month, and crime dropped 20%. The streetlights are preventing crime.",
+        correctAnswer: "Post Hoc",
+        options: ["Post Hoc", "False Dilemma", "Appeal to Authority", "Circular Reasoning"],
+        explanation:
+          "The crime drop could be due to seasonal changes, policing, or other factors — temporal sequence alone doesn't prove causation.",
+      },
+      {
+        argument:
+          "I started taking vitamin C supplements last week and my cold went away. The supplements cured me.",
+        correctAnswer: "Post Hoc",
+        options: ["Appeal to Nature", "Bandwagon", "Post Hoc", "Red Herring"],
+        explanation:
+          "Colds typically resolve on their own in about a week — the recovery coinciding with supplement use doesn't prove causation.",
+      },
+      {
+        argument:
+          "Our company switched to open-plan offices in January and productivity dropped by March. Open offices destroy focus.",
+        correctAnswer: "Post Hoc",
+        options: ["Hasty Generalization", "Slippery Slope", "Post Hoc", "Straw Man"],
+        explanation:
+          "Many factors could explain the productivity change — attributing it solely to the office layout based on timing is a post hoc fallacy.",
+      },
+    ],
+  },
+  // --- Blue Belt: Composition/Division ---
+  {
+    id: "composition_division",
+    name: "Composition / Division",
+    aliases: ["Part-Whole Fallacy", "Ecological Fallacy"],
+    definition:
+      "Assuming what is true of a part must be true of the whole, or what is true of the whole must be true of every part.",
+    belt: "blue",
+    examples: [
+      {
+        argument:
+          "Every player on the team is a star performer, so the team must be the best in the league.",
+        correctAnswer: "Composition / Division",
+        options: ["Hasty Generalization", "Bandwagon", "Composition / Division", "False Cause"],
+        explanation:
+          "Individual talent doesn't guarantee team success — chemistry, coaching, and strategy also matter.",
+      },
+      {
+        argument:
+          "The average income in this country is $60,000, so everyone here must be able to afford a $1,500/month apartment.",
+        correctAnswer: "Composition / Division",
+        options: ["Composition / Division", "Base Rate Neglect", "False Dilemma", "Equivocation"],
+        explanation:
+          "An average across a population doesn't describe any individual's situation — income distribution is highly uneven.",
+      },
+      {
+        argument:
+          "Atoms are invisible to the naked eye, so anything made of atoms must also be invisible.",
+        correctAnswer: "Composition / Division",
+        options: ["Appeal to Ignorance", "Circular Reasoning", "Composition / Division", "Straw Man"],
+        explanation:
+          "Properties of parts don't automatically transfer to the whole — atoms are invisible but macroscopic objects obviously aren't.",
+      },
+      {
+        argument:
+          "This university is ranked #1, so every professor here must be better than professors at other schools.",
+        correctAnswer: "Composition / Division",
+        options: ["Appeal to Authority", "Composition / Division", "Bandwagon", "Hasty Generalization"],
+        explanation:
+          "An institution's overall ranking doesn't mean every individual within it excels — the whole's quality doesn't transfer to each part.",
+      },
+    ],
+  },
+  // --- Blue Belt: Appeal to Ignorance ---
+  {
+    id: "appeal_to_ignorance",
+    name: "Appeal to Ignorance",
+    aliases: ["Argument from Ignorance", "Argumentum ad Ignorantiam"],
+    definition:
+      "Claiming something is true because it hasn't been proven false, or false because it hasn't been proven true.",
+    belt: "blue",
+    examples: [
+      {
+        argument:
+          "Nobody has proven that ghosts don't exist, therefore they must be real.",
+        correctAnswer: "Appeal to Ignorance",
+        options: ["Appeal to Ignorance", "Circular Reasoning", "Post Hoc", "Bandwagon"],
+        explanation:
+          "Lack of disproof is not proof — the burden of proof lies with the person making the claim.",
+      },
+      {
+        argument:
+          "Scientists haven't found evidence of life on other planets, which proves we're alone in the universe.",
+        correctAnswer: "Appeal to Ignorance",
+        options: ["Hasty Generalization", "Appeal to Ignorance", "False Dilemma", "Appeal to Authority"],
+        explanation:
+          "Absence of evidence is not evidence of absence — we've only explored a tiny fraction of the universe.",
+      },
+      {
+        argument:
+          "No one has been able to prove that this supplement is harmful, so it must be safe to take.",
+        correctAnswer: "Appeal to Ignorance",
+        options: ["Appeal to Nature", "Post Hoc", "Appeal to Ignorance", "Red Herring"],
+        explanation:
+          "Not having found harm doesn't prove safety — the supplement may simply not have been studied adequately.",
+      },
+      {
+        argument:
+          "There's no proof that the CEO knew about the fraud, so he must be completely innocent.",
+        correctAnswer: "Appeal to Ignorance",
+        options: ["Appeal to Ignorance", "Equivocation", "Ad Hominem", "False Cause"],
+        explanation:
+          "Lack of evidence of knowledge doesn't prove innocence — it means the question hasn't been conclusively answered either way.",
+      },
+    ],
+  },
+  // --- Blue Belt: Moving the Goalposts ---
+  {
+    id: "moving_goalposts",
+    name: "Moving the Goalposts",
+    aliases: ["Raising the Bar", "Shifting Standards"],
+    definition:
+      "Changing the criteria for proof or acceptance after they have already been met.",
+    belt: "blue",
+    examples: [
+      {
+        argument:
+          "\"Show me one study that masks work.\" — \"That's just one study, show me a meta-analysis.\" — \"That's just academics, show me real-world data.\"",
+        correctAnswer: "Moving the Goalposts",
+        options: ["Moving the Goalposts", "Red Herring", "Straw Man", "Circular Reasoning"],
+        explanation:
+          "Each time evidence is provided, the standard is raised — the person never intended to accept any evidence.",
+      },
+      {
+        argument:
+          "\"If you can run a mile under 8 minutes, I'll admit you're fit.\" → After you do it: \"Well, anyone can run. Can you do 50 pushups?\"",
+        correctAnswer: "Moving the Goalposts",
+        options: ["False Dilemma", "Moving the Goalposts", "Appeal to Emotion", "Equivocation"],
+        explanation:
+          "The criteria for 'fit' keeps shifting after being met — this prevents any possible satisfaction of the original claim.",
+      },
+      {
+        argument:
+          "\"Prove that remote workers are productive.\" → \"OK, but that data is from tech companies — what about retail?\" → \"Retail is different, what about manufacturing?\"",
+        correctAnswer: "Moving the Goalposts",
+        options: ["Hasty Generalization", "Slippery Slope", "Moving the Goalposts", "Whataboutism"],
+        explanation:
+          "Each time evidence is provided for a sector, the scope changes to a new sector — the standard is never fixed.",
+      },
+      {
+        argument:
+          "\"I'd believe in climate change if 97% of scientists agreed.\" → Told 97% do agree: \"Well, those are just climate scientists, not real scientists.\"",
+        correctAnswer: "Moving the Goalposts",
+        options: ["Appeal to Authority", "Moving the Goalposts", "Ad Hominem", "Bandwagon"],
+        explanation:
+          "The person's original threshold was met, so they redefine who counts as a credible scientist to maintain their position.",
+      },
+    ],
+  },
+  // --- Brown Belt: Affirming the Consequent ---
+  {
+    id: "affirming_consequent",
+    name: "Affirming the Consequent",
+    aliases: ["Converse Error"],
+    definition:
+      "Assuming that if A causes B, then observing B means A must have occurred.",
+    belt: "brown",
+    examples: [
+      {
+        argument:
+          "If it rains, the ground gets wet. The ground is wet, therefore it must have rained.",
+        correctAnswer: "Affirming the Consequent",
+        options: ["Post Hoc", "Affirming the Consequent", "False Dilemma", "Circular Reasoning"],
+        explanation:
+          "The ground could be wet from a sprinkler, a spill, or condensation — rain isn't the only possible cause.",
+      },
+      {
+        argument:
+          "If someone is a doctor, they went to medical school. Sarah went to medical school, so she must be a doctor.",
+        correctAnswer: "Affirming the Consequent",
+        options: ["Affirming the Consequent", "Hasty Generalization", "Appeal to Authority", "Equivocation"],
+        explanation:
+          "Sarah may have attended medical school without completing her degree, or may practice in a different field.",
+      },
+      {
+        argument:
+          "Successful companies advertise heavily. Our company advertises heavily, so we must be successful.",
+        correctAnswer: "Affirming the Consequent",
+        options: ["Bandwagon", "Affirming the Consequent", "Survivorship Bias", "Composition / Division"],
+        explanation:
+          "Heavy advertising is something successful companies do, but doing it doesn't guarantee success — the logic is reversed.",
+      },
+      {
+        argument:
+          "If a student studies hard, they get good grades. Maria got good grades, so she must have studied hard.",
+        correctAnswer: "Affirming the Consequent",
+        options: ["Post Hoc", "Appeal to Ignorance", "Affirming the Consequent", "False Cause"],
+        explanation:
+          "Maria could have gotten good grades through natural aptitude, tutoring, or easy coursework — studying hard isn't the only path.",
+      },
+    ],
+  },
+  // --- Brown Belt: Base Rate Neglect ---
+  {
+    id: "base_rate_neglect",
+    name: "Base Rate Neglect",
+    aliases: ["Base Rate Fallacy", "Prosecutor's Fallacy"],
+    definition:
+      "Ignoring general statistical probabilities in favor of specific but less reliable information.",
+    belt: "brown",
+    examples: [
+      {
+        argument:
+          "The drug test is 99% accurate and you tested positive, so you almost certainly have the drug in your system. (Only 1 in 10,000 people in this population use the drug.)",
+        correctAnswer: "Base Rate Neglect",
+        options: ["Base Rate Neglect", "Hasty Generalization", "Post Hoc", "Appeal to Authority"],
+        explanation:
+          "With a 1/10,000 base rate, even a 99% accurate test produces more false positives than true positives in this population.",
+      },
+      {
+        argument:
+          "This person fits the profile of a terrorist — they paid cash for a one-way ticket. They must be dangerous.",
+        correctAnswer: "Base Rate Neglect",
+        options: ["Hasty Generalization", "Base Rate Neglect", "Ad Hominem", "False Cause"],
+        explanation:
+          "Millions of innocent people buy one-way cash tickets — the base rate of actual threats is vanishingly small, so the profile is unreliable.",
+      },
+      {
+        argument:
+          "A witness identified the suspect and witnesses are 80% accurate. So there's an 80% chance the suspect is guilty.",
+        correctAnswer: "Base Rate Neglect",
+        options: ["Appeal to Ignorance", "Base Rate Neglect", "Circular Reasoning", "Equivocation"],
+        explanation:
+          "This ignores the base rate — if the suspect was picked from a large pool, the probability they're the actual perpetrator may be much lower than 80%.",
+      },
+    ],
+  },
+  // --- Brown Belt: Survivorship Bias ---
+  {
+    id: "survivorship_bias",
+    name: "Survivorship Bias",
+    aliases: ["Survival Bias", "Selection Bias"],
+    definition:
+      "Drawing conclusions from successes while ignoring failures that are no longer visible.",
+    belt: "brown",
+    examples: [
+      {
+        argument:
+          "Bill Gates dropped out of college and became a billionaire. College clearly isn't necessary for success.",
+        correctAnswer: "Survivorship Bias",
+        options: ["Hasty Generalization", "Survivorship Bias", "Appeal to Authority", "Post Hoc"],
+        explanation:
+          "For every dropout billionaire, millions of dropouts struggle — we only hear about the rare successes.",
+      },
+      {
+        argument:
+          "This building has stood for 200 years without modern engineering. Old construction methods were superior.",
+        correctAnswer: "Survivorship Bias",
+        options: ["Appeal to Nature", "Survivorship Bias", "Composition / Division", "Bandwagon"],
+        explanation:
+          "Thousands of old buildings collapsed and were demolished — we only see the ones that survived, skewing our perception.",
+      },
+      {
+        argument:
+          "My grandmother smoked a pack a day and lived to 95. Smoking can't be that bad for you.",
+        correctAnswer: "Survivorship Bias",
+        options: ["Post Hoc", "Hasty Generalization", "Survivorship Bias", "Appeal to Emotion"],
+        explanation:
+          "Your grandmother is an outlier — the millions of smokers who died early from lung disease aren't around to tell their story.",
+      },
+      {
+        argument:
+          "Every successful startup founder I've read about worked 100-hour weeks. That must be the key to startup success.",
+        correctAnswer: "Survivorship Bias",
+        options: ["Survivorship Bias", "False Cause", "Bandwagon", "Affirming the Consequent"],
+        explanation:
+          "You only read about founders who succeeded — countless others worked 100-hour weeks and still failed.",
+      },
+    ],
+  },
+  // --- Brown Belt: Simpson's Paradox ---
+  {
+    id: "simpsons_paradox",
+    name: "Simpson's Paradox",
+    aliases: ["Amalgamation Paradox", "Reversal Paradox"],
+    definition:
+      "A trend that appears in groups of data reverses or disappears when the groups are combined.",
+    belt: "brown",
+    examples: [
+      {
+        argument:
+          "Hospital A has better survival rates overall, so it must be the better hospital. (Hospital B actually has better rates in every department — it just treats harder cases.)",
+        correctAnswer: "Simpson's Paradox",
+        options: ["Simpson's Paradox", "Composition / Division", "Base Rate Neglect", "Hasty Generalization"],
+        explanation:
+          "The aggregate data reverses when you look at departments — Hospital B treats more difficult cases, skewing its overall rate.",
+      },
+      {
+        argument:
+          "Men were admitted to the university at a higher rate than women overall, proving gender bias. (In every individual department, women were admitted at equal or higher rates.)",
+        correctAnswer: "Simpson's Paradox",
+        options: ["False Cause", "Simpson's Paradox", "Survivorship Bias", "Equivocation"],
+        explanation:
+          "Women applied more to competitive departments — the aggregate reversal is caused by different application patterns, not bias.",
+      },
+      {
+        argument:
+          "Drug B has a higher recovery rate overall, so prescribe Drug B. (Drug A actually works better for both mild and severe cases — Drug B was just given to more mild cases.)",
+        correctAnswer: "Simpson's Paradox",
+        options: ["Simpson's Paradox", "Post Hoc", "Appeal to Authority", "Affirming the Consequent"],
+        explanation:
+          "The confounding variable (case severity) reverses the trend — Drug A is better within each group despite appearing worse overall.",
       },
     ],
   },

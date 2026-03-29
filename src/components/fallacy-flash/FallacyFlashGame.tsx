@@ -2,9 +2,14 @@
 
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { fallacies, type FallacyExample } from "@/data/fallacies";
-import { type Belt } from "@/data/belts";
-import { awardXP } from "@/lib/progress";
+import { type Belt, getBeltForXP, getUnlockedFallacyIds } from "@/data/belts";
+import { awardXP, loadProgress } from "@/lib/progress";
 import { recordConsecutiveFast, recordPerfectRound } from "@/lib/achievements";
+import {
+  recordAttempt,
+  getNextReviewBatch,
+  getDueCount,
+} from "@/lib/spaced-repetition";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
 import BeltUpCelebration from "@/components/belt-up/BeltUpCelebration";
 import ShareScore from "@/components/share-score/ShareScore";
@@ -16,19 +21,51 @@ interface QuestionState {
   revealed: boolean;
 }
 
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 function getRandomQuestions(count: number): QuestionState[] {
+  // Get current belt and unlocked fallacy IDs
+  const progress = loadProgress();
+  const belt = getBeltForXP(progress.totalXP);
+  const unlockedIds = new Set(getUnlockedFallacyIds(belt.name));
+
+  // Filter fallacies to current belt level and below
+  const eligible = fallacies.filter((f) => unlockedIds.has(f.id));
+
+  // Get review-due fallacies and prioritize them
+  const dueIds = new Set(getNextReviewBatch());
+
   const pool: QuestionState[] = [];
-  for (const fallacy of fallacies) {
+  for (const fallacy of eligible) {
     for (const example of fallacy.examples) {
       pool.push({ fallacy, example, selectedAnswer: null, revealed: false });
     }
   }
-  // Shuffle and take count
-  for (let i = pool.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [pool[i], pool[j]] = [pool[j], pool[i]];
-  }
-  return pool.slice(0, count);
+
+  // Separate review-due questions from regular pool
+  const dueQuestions = pool.filter((q) => dueIds.has(q.fallacy.id));
+  const regularQuestions = pool.filter((q) => !dueIds.has(q.fallacy.id));
+
+  // Prioritize review-due: take up to half from due, fill rest from regular
+  const shuffledDue = shuffle(dueQuestions);
+  const shuffledRegular = shuffle(regularQuestions);
+
+  const dueSlots = Math.min(Math.ceil(count / 2), shuffledDue.length);
+  const regularSlots = count - dueSlots;
+
+  const selected = [
+    ...shuffledDue.slice(0, dueSlots),
+    ...shuffledRegular.slice(0, regularSlots),
+  ];
+
+  return shuffle(selected).slice(0, count);
 }
 
 export default function FallacyFlashGame() {
@@ -39,6 +76,7 @@ export default function FallacyFlashGame() {
   );
   const [revealed, setRevealed] = useState(false);
   const [finished, setFinished] = useState(false);
+  const [reviewDueCount] = useState(() => getDueCount());
 
   // Speed tracking for Speed Demon achievement
   const questionStartTimeRef = useRef(Date.now());
@@ -67,6 +105,9 @@ export default function FallacyFlashGame() {
         consecutiveFastRef.current = 0;
       }
 
+      // Feed result into spaced repetition engine
+      recordAttempt(current.fallacy.id, isCorrectAnswer);
+
       setAnswers((prev) => {
         const next = [...prev];
         next[currentIndex] = option;
@@ -74,7 +115,7 @@ export default function FallacyFlashGame() {
       });
       setRevealed(true);
     },
-    [currentIndex, revealed, current.example.correctAnswer]
+    [currentIndex, revealed, current.example.correctAnswer, current.fallacy.id]
   );
 
   const handleNext = useCallback(() => {
@@ -199,8 +240,15 @@ export default function FallacyFlashGame() {
           >
             ← Back
           </a>
-          <div className="text-sm text-dojo-muted">
-            {currentIndex + 1} / {questions.length}
+          <div className="flex items-center gap-3">
+            <div className="text-sm text-dojo-muted">
+              {currentIndex + 1} / {questions.length}
+            </div>
+            {reviewDueCount > 0 && (
+              <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-900/30 text-amber-400 font-medium">
+                {reviewDueCount} review
+              </span>
+            )}
           </div>
           <BeltBadge />
         </div>

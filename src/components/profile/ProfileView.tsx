@@ -11,6 +11,7 @@ import {
   type GameMode,
 } from "@/data/belts";
 import { loadProgress, getTotalAccuracy, type ProgressData } from "@/lib/progress";
+import BeltProgress from "@/components/BeltProgress";
 
 const MODE_LABELS: Record<GameMode, { name: string; icon: string }> = {
   "fallacy-flash": { name: "Fallacy Flash", icon: "lightning" },
@@ -127,6 +128,9 @@ export default function ProfileView() {
             </div>
             <div className="text-sm text-dojo-muted">Overall Accuracy</div>
           </div>
+
+          {/* Fallacy Curriculum */}
+          <BeltProgress />
 
           {/* Game Mode Stats */}
           <div>
