@@ -18,6 +18,12 @@ export default function Home() {
             Dojo
           </span>
           <div className="flex items-center gap-4">
+            <a
+              href="/dojo-master"
+              className="text-xs font-medium text-dojo-accent hover:text-dojo-accent-hover transition-colors"
+            >
+              Train with Sensei
+            </a>
             <AchievementNavLink />
             <BeltBadge />
           </div>
