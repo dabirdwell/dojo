@@ -133,6 +133,18 @@ const tools = [
       "3 pre-loaded examples to get started",
     ],
   },
+  {
+    name: "Impromptu Speaking",
+    icon: "🎤",
+    href: "/tools/impromptu",
+    description:
+      "Draw a random topic card, prep for 30 seconds, then deliver a timed speech. Practice thinking on your feet with self-assessment and optional AI feedback on your rhetoric.",
+    features: [
+      "24 topics across foundations, current events & counter-arguments",
+      "30s prep + 60s or 90s speaking timer with visual countdown",
+      "Optional audio recording and AI transcript feedback",
+    ],
+  },
 ];
 
 export default function GameModes() {

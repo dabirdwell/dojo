@@ -27,6 +27,7 @@ npm run build
 - `/play/argument-map/` — Visual argument mapping (highest-impact technique)
 - `/play/real-world/` — Real-world practice scenarios
 - `/tools/rhetoric/` — Rhetoric analyzer (uses Anthropic API)
+- `/tools/impromptu/` — Impromptu speaking practice (uses Anthropic API for feedback)
 - `/achievements/` — Achievement system
 - `/leaderboard/` — Score rankings
 - `/profile/` — User profile + belt progress

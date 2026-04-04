@@ -40,6 +40,7 @@ function defaultProgress(): ProgressData {
       "real-world": { ...defaultStats },
       "argument-map": { ...defaultStats },
       rhetoric: { ...defaultStats },
+      impromptu: { ...defaultStats },
     },
   };
 }

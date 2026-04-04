@@ -25,6 +25,12 @@ export default function Home() {
               Rhetoric Analyzer
             </a>
             <a
+              href="/tools/impromptu"
+              className="text-xs font-medium text-dojo-muted hover:text-dojo-text transition-colors"
+            >
+              Impromptu Speaking
+            </a>
+            <a
               href="/dojo-master"
               className="text-xs font-medium text-dojo-accent hover:text-dojo-accent-hover transition-colors"
             >

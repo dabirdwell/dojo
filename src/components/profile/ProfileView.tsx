@@ -23,6 +23,7 @@ const MODE_LABELS: Record<GameMode, { name: string; icon: string }> = {
   "real-world": { name: "Real World", icon: "globe" },
   "argument-map": { name: "Argument Map", icon: "map" },
   rhetoric: { name: "Rhetoric Analyzer", icon: "microscope" },
+  impromptu: { name: "Impromptu Speaking", icon: "microphone" },
 };
 
 export default function ProfileView() {
