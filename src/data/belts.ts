@@ -40,7 +40,7 @@ export function getProgressToNextBelt(xp: number): number {
   return Math.min(100, Math.round((progress / range) * 100));
 }
 
-export type GameMode = "fallacy-flash" | "steelman" | "source-check" | "daily-brief" | "civic-check" | "socratic" | "real-world" | "argument-map";
+export type GameMode = "fallacy-flash" | "steelman" | "source-check" | "daily-brief" | "civic-check" | "socratic" | "real-world" | "argument-map" | "rhetoric";
 
 export const XP_AWARDS: Record<GameMode, { base: number; description: string }> = {
   "fallacy-flash": { base: 10, description: "10 XP per correct + 25 bonus" },
@@ -51,6 +51,7 @@ export const XP_AWARDS: Record<GameMode, { base: number; description: string }> 
   socratic: { base: 15, description: "15 XP per correct + 25 insight bonus" },
   "real-world": { base: 12, description: "12 XP per correct + 20 streak bonus" },
   "argument-map": { base: 15, description: "15 XP base + up to 35 accuracy bonus" },
+  rhetoric: { base: 5, description: "5 XP per analysis, max 3 per day" },
 };
 
 // --- Belt → Fallacy Curriculum ---

@@ -26,6 +26,7 @@ npm run build
 - `/play/civic-check/` — Civic policy analysis
 - `/play/argument-map/` — Visual argument mapping (highest-impact technique)
 - `/play/real-world/` — Real-world practice scenarios
+- `/tools/rhetoric/` — Rhetoric analyzer (uses Anthropic API)
 - `/achievements/` — Achievement system
 - `/leaderboard/` — Score rankings
 - `/profile/` — User profile + belt progress

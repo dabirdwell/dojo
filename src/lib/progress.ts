@@ -39,6 +39,7 @@ function defaultProgress(): ProgressData {
       socratic: { ...defaultStats },
       "real-world": { ...defaultStats },
       "argument-map": { ...defaultStats },
+      rhetoric: { ...defaultStats },
     },
   };
 }

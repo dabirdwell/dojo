@@ -120,6 +120,21 @@ const gameModes = [
   },
 ];
 
+const tools = [
+  {
+    name: "Rhetoric Analyzer",
+    icon: "🔬",
+    href: "/tools/rhetoric",
+    description:
+      "Paste any text — speech, ad, article, or social media post — and get an AI-powered breakdown of rhetorical devices, logical fallacies, and persuasion techniques with inline annotations.",
+    features: [
+      "Color-coded inline highlights by device type",
+      "Argument strength rating (1-10)",
+      "3 pre-loaded examples to get started",
+    ],
+  },
+];
+
 export default function GameModes() {
   return (
     <section id="game-modes" className="py-24 px-6">
@@ -170,6 +185,40 @@ export default function GameModes() {
               </div>
             );
           })}
+        </div>
+
+        {/* Tools section */}
+        <h3 className="text-2xl font-bold text-center mt-20 mb-4">Tools</h3>
+        <p className="text-dojo-muted text-center mb-10 max-w-xl mx-auto">
+          Analysis tools for deeper understanding of rhetoric and reasoning.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {tools.map((tool) => (
+            <a
+              key={tool.name}
+              href={tool.href}
+              className="bg-dojo-card border border-dojo-border rounded-xl p-6 hover:border-dojo-accent/40 transition-colors block"
+            >
+              <div className="text-3xl mb-4">{tool.icon}</div>
+              <h3 className="text-xl font-semibold mb-3 text-dojo-text">
+                {tool.name}
+              </h3>
+              <p className="text-dojo-muted text-sm leading-relaxed mb-4">
+                {tool.description}
+              </p>
+              <ul className="space-y-2">
+                {tool.features.map((f) => (
+                  <li
+                    key={f}
+                    className="text-xs text-dojo-muted/80 flex items-start gap-2"
+                  >
+                    <span className="text-dojo-accent mt-0.5">&#x25B8;</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </a>
+          ))}
         </div>
       </div>
     </section>
