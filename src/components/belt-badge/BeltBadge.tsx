@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { getBeltForXP, getNextBelt, getProgressToNextBelt } from "@/data/belts";
+import { getNextBelt } from "@/data/belts";
 import { loadProgress } from "@/lib/progress";
+import { getEffectiveBelt } from "@/lib/belt-test";
 
 function ShieldIcon({ color }: { color: string }) {
   return (
@@ -37,9 +38,11 @@ export default function BeltBadge() {
 
   if (!mounted) return null;
 
-  const belt = getBeltForXP(xp);
-  const nextBelt = getNextBelt(xp);
-  const progress = getProgressToNextBelt(xp);
+  const belt = getEffectiveBelt(xp);
+  const nextBelt = getNextBelt(belt.minXP);
+  const progress = nextBelt
+    ? Math.min(100, Math.round(((xp - belt.minXP) / (nextBelt.minXP - belt.minXP)) * 100))
+    : 100;
   const beltColor = belt.name === "Black Belt" ? "#f0e6d6" : belt.color;
 
   return (

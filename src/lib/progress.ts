@@ -41,6 +41,7 @@ function defaultProgress(): ProgressData {
       "argument-map": { ...defaultStats },
       rhetoric: { ...defaultStats },
       impromptu: { ...defaultStats },
+      "belt-test": { ...defaultStats },
     },
   };
 }

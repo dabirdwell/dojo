@@ -6,11 +6,18 @@ import {
   belts,
   getBeltForXP,
   getNextBelt,
-  getProgressToNextBelt,
   XP_AWARDS,
   type GameMode,
+  CURRICULUM_BELT_ORDER,
+  getCurriculumBelt,
 } from "@/data/belts";
 import { loadProgress, getTotalAccuracy, type ProgressData } from "@/lib/progress";
+import {
+  getEffectiveBelt,
+  canTakeTest,
+  getTestHistory,
+  type BeltTestAttempt,
+} from "@/lib/belt-test";
 import BeltProgress from "@/components/BeltProgress";
 
 const MODE_LABELS: Record<GameMode, { name: string; icon: string }> = {
@@ -24,21 +31,42 @@ const MODE_LABELS: Record<GameMode, { name: string; icon: string }> = {
   "argument-map": { name: "Argument Map", icon: "map" },
   rhetoric: { name: "Rhetoric Analyzer", icon: "microscope" },
   impromptu: { name: "Impromptu Speaking", icon: "microphone" },
+  "belt-test": { name: "Belt Tests", icon: "scroll" },
+};
+
+const CURRICULUM_LABELS: Record<string, string> = {
+  white: "White Belt",
+  yellow: "Yellow Belt",
+  green: "Green Belt",
+  blue: "Blue Belt",
+  brown: "Brown Belt",
+  black: "Black Belt",
 };
 
 export default function ProfileView() {
   const [progress, setProgress] = useState<ProgressData | null>(null);
+  const [testEligibility, setTestEligibility] = useState<ReturnType<typeof canTakeTest> | null>(null);
+  const [testHistory, setTestHistory] = useState<BeltTestAttempt[]>([]);
 
   useEffect(() => {
-    setProgress(loadProgress());
+    const p = loadProgress();
+    setProgress(p);
+    setTestEligibility(canTakeTest(p.totalXP));
+    setTestHistory(getTestHistory());
   }, []);
 
   if (!progress) return null;
 
-  const belt = getBeltForXP(progress.totalXP);
-  const nextBelt = getNextBelt(progress.totalXP);
-  const progressPct = getProgressToNextBelt(progress.totalXP);
+  const belt = getEffectiveBelt(progress.totalXP);
+  const xpBelt = getBeltForXP(progress.totalXP);
+  const nextBelt = getNextBelt(belt.minXP);
+  const progressPct = nextBelt
+    ? Math.min(100, Math.round(((progress.totalXP - belt.minXP) / (nextBelt.minXP - belt.minXP)) * 100))
+    : 100;
   const accuracy = getTotalAccuracy(progress);
+
+  // Show test-gated message if XP qualifies for higher belt
+  const isTestGated = xpBelt.name !== belt.name;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -92,6 +120,45 @@ export default function ProfileView() {
             <p className="text-sm text-dojo-muted">{belt.label}</p>
           </div>
 
+          {/* Take the Test CTA */}
+          {isTestGated && testEligibility?.eligible && testEligibility.testLevel && (
+            <Link
+              href="/test/belt"
+              className="block bg-dojo-accent/10 border-2 border-dojo-accent/40 rounded-xl p-5 text-center hover:border-dojo-accent/70 transition-all group"
+            >
+              <div className="flex items-center justify-center gap-3">
+                <div
+                  className="w-10 h-3 rounded-full"
+                  style={{
+                    backgroundColor: getCurriculumBelt(testEligibility.testLevel).color,
+                    boxShadow: `0 0 10px ${getCurriculumBelt(testEligibility.testLevel).color}50`,
+                  }}
+                />
+                <div className="text-left">
+                  <p className="text-sm font-semibold text-dojo-accent group-hover:text-dojo-accent-hover transition-colors">
+                    Take the {CURRICULUM_LABELS[testEligibility.testLevel]} Test
+                  </p>
+                  <p className="text-xs text-dojo-muted">
+                    You have enough XP to advance. Prove your mastery!
+                  </p>
+                </div>
+                <span className="text-dojo-accent text-lg ml-auto">&#8594;</span>
+              </div>
+            </Link>
+          )}
+
+          {/* Cooldown notice */}
+          {isTestGated && testEligibility?.cooldownUntil && (
+            <div className="bg-dojo-card border border-amber-900/30 rounded-xl p-5 text-center">
+              <p className="text-sm text-amber-400 font-medium mb-1">
+                Belt Test Cooldown Active
+              </p>
+              <p className="text-xs text-dojo-muted">
+                {testEligibility.reason}
+              </p>
+            </div>
+          )}
+
           {/* Progress to Next Belt */}
           {nextBelt && (
             <div className="bg-dojo-card border border-dojo-border rounded-xl p-5">
@@ -111,7 +178,9 @@ export default function ProfileView() {
                 />
               </div>
               <p className="text-xs text-dojo-muted mt-2">
-                {nextBelt.minXP - progress.totalXP} XP to go
+                {isTestGated
+                  ? "Pass the belt test to advance"
+                  : `${nextBelt.minXP - progress.totalXP} XP to go`}
               </p>
             </div>
           )}
@@ -132,6 +201,74 @@ export default function ProfileView() {
             <div className="text-sm text-dojo-muted">Overall Accuracy</div>
           </div>
 
+          {/* Belt Test History */}
+          {testHistory.length > 0 && (
+            <div>
+              <h2 className="text-lg font-semibold text-dojo-text mb-4">
+                Belt Test History
+              </h2>
+              <div className="space-y-2">
+                {testHistory
+                  .slice()
+                  .reverse()
+                  .map((attempt, i) => {
+                    const currBelt = CURRICULUM_BELT_ORDER.includes(attempt.level)
+                      ? getCurriculumBelt(attempt.level)
+                      : null;
+                    const pct = Math.round(
+                      (attempt.score / attempt.totalQuestions) * 100
+                    );
+                    return (
+                      <div
+                        key={`${attempt.date}-${i}`}
+                        className={`flex items-center gap-3 p-3 rounded-lg border ${
+                          attempt.passed
+                            ? "border-green-500/20 bg-green-500/5"
+                            : "border-red-500/20 bg-red-500/5"
+                        }`}
+                      >
+                        <div
+                          className="w-8 h-2 rounded-full flex-shrink-0"
+                          style={{
+                            backgroundColor: currBelt?.color ?? "#666",
+                          }}
+                        />
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-medium text-dojo-text">
+                              {CURRICULUM_LABELS[attempt.level] ?? attempt.level} Test
+                            </span>
+                            <span
+                              className={`text-xs px-1.5 py-0.5 rounded ${
+                                attempt.passed
+                                  ? "bg-green-500/20 text-green-400"
+                                  : "bg-red-500/20 text-red-400"
+                              }`}
+                            >
+                              {attempt.passed ? "Passed" : "Failed"}
+                            </span>
+                          </div>
+                          <span className="text-xs text-dojo-muted">
+                            {new Date(attempt.date).toLocaleDateString()}
+                          </span>
+                        </div>
+                        <div className="text-right">
+                          <span
+                            className={`text-sm font-bold ${
+                              attempt.passed ? "text-green-400" : "text-red-400"
+                            }`}
+                          >
+                            {attempt.score}/{attempt.totalQuestions}
+                          </span>
+                          <div className="text-xs text-dojo-muted">{pct}%</div>
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+          )}
+
           {/* Fallacy Curriculum */}
           <BeltProgress />
 
@@ -143,6 +280,7 @@ export default function ProfileView() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {(Object.keys(MODE_LABELS) as GameMode[]).map((mode) => {
                 const stats = progress.stats[mode];
+                if (!stats) return null;
                 const modeAccuracy =
                   stats.totalQuestions > 0
                     ? Math.round(
@@ -195,7 +333,7 @@ export default function ProfileView() {
             </h2>
             <div className="space-y-2">
               {belts.map((b) => {
-                const achieved = progress.totalXP >= b.minXP;
+                const achieved = belt.minXP >= b.minXP;
                 const isCurrent = b.name === belt.name;
                 return (
                   <div

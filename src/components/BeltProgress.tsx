@@ -5,7 +5,6 @@ import {
   BELT_CURRICULUM,
   CURRICULUM_BELT_ORDER,
   getCurriculumLevel,
-  getBeltForXP,
   type CurriculumBeltLevel,
   type CurriculumBelt,
 } from "@/data/belts";
@@ -16,6 +15,7 @@ import {
   getNextReviewBatch,
 } from "@/lib/spaced-repetition";
 import { loadProgress } from "@/lib/progress";
+import { getEffectiveBelt } from "@/lib/belt-test";
 
 type FallacyStatus = "mastered" | "in-progress" | "locked";
 
@@ -177,7 +177,7 @@ export default function BeltProgress() {
 
   useEffect(() => {
     const progress = loadProgress();
-    const belt = getBeltForXP(progress.totalXP);
+    const belt = getEffectiveBelt(progress.totalXP);
     setCurrentBeltName(belt.name);
     setDueIds(new Set(getNextReviewBatch()));
     setMounted(true);

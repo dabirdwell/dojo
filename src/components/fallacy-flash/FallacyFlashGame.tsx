@@ -2,8 +2,9 @@
 
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { fallacies, type FallacyExample } from "@/data/fallacies";
-import { type Belt, getBeltForXP, getUnlockedFallacyIds } from "@/data/belts";
+import { type Belt, getUnlockedFallacyIds } from "@/data/belts";
 import { awardXP, loadProgress } from "@/lib/progress";
+import { getEffectiveBelt } from "@/lib/belt-test";
 import { recordConsecutiveFast, recordPerfectRound } from "@/lib/achievements";
 import {
   recordAttempt,
@@ -31,9 +32,9 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 function getRandomQuestions(count: number): QuestionState[] {
-  // Get current belt and unlocked fallacy IDs
+  // Get effective belt (test-gated) and unlocked fallacy IDs
   const progress = loadProgress();
-  const belt = getBeltForXP(progress.totalXP);
+  const belt = getEffectiveBelt(progress.totalXP);
   const unlockedIds = new Set(getUnlockedFallacyIds(belt.name));
 
   // Filter fallacies to current belt level and below
