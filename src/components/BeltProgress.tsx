@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   BELT_CURRICULUM,
   CURRICULUM_BELT_ORDER,
@@ -133,7 +134,7 @@ function BeltSection({
               {/* Status indicator */}
               <div className="flex-shrink-0 w-5 text-center">
                 {status === "mastered" ? (
-                  <span className="text-green-500 text-xs font-bold">&#10003;</span>
+                  <span className="text-amber-400 text-sm" title="Mastered — 5+ successful reviews">&#9733;</span>
                 ) : status === "in-progress" ? (
                   <span
                     className="inline-block w-2 h-2 rounded-full"
@@ -197,9 +198,9 @@ export default function BeltProgress() {
       <p className="text-xs text-dojo-muted mb-5">
         Master each belt&apos;s fallacies through spaced repetition.
         {dueIds.size > 0 && (
-          <span className="text-amber-400 ml-1">
-            {dueIds.size} due for review.
-          </span>
+          <Link href="/review" className="text-amber-400 hover:text-amber-300 ml-1 transition-colors">
+            {dueIds.size} due for review &rarr;
+          </Link>
         )}
       </p>
 

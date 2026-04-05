@@ -7,6 +7,7 @@ import DailyBriefCard from "@/components/landing/DailyBriefCard";
 import DailyChallengeCard from "@/components/landing/DailyChallengeCard";
 import BeltBadge from "@/components/belt-badge/BeltBadge";
 import AchievementNavLink from "@/components/achievements/AchievementNavLink";
+import ReviewNavBadge from "@/components/review/ReviewNavBadge";
 
 export default function Home() {
   return (
@@ -36,6 +37,7 @@ export default function Home() {
             >
               Train with Sensei
             </a>
+            <ReviewNavBadge />
             <AchievementNavLink />
             <BeltBadge />
           </div>

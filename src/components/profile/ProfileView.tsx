@@ -18,6 +18,14 @@ import {
   getTestHistory,
   type BeltTestAttempt,
 } from "@/lib/belt-test";
+import {
+  getReviewStats,
+  getMasteryRate,
+  getMasteredCount,
+  getUpcomingSchedule,
+  getDueCount,
+} from "@/lib/spaced-repetition";
+import { getAllCurriculumFallacies } from "@/data/belts";
 import BeltProgress from "@/components/BeltProgress";
 
 const MODE_LABELS: Record<GameMode, { name: string; icon: string }> = {
@@ -47,12 +55,22 @@ export default function ProfileView() {
   const [progress, setProgress] = useState<ProgressData | null>(null);
   const [testEligibility, setTestEligibility] = useState<ReturnType<typeof canTakeTest> | null>(null);
   const [testHistory, setTestHistory] = useState<BeltTestAttempt[]>([]);
+  const [reviewStats, setReviewStats] = useState<ReturnType<typeof getReviewStats> | null>(null);
+  const [masteryRate, setMasteryRate] = useState(0);
+  const [masteredCount, setMasteredCount] = useState(0);
+  const [dueCount, setDueCount] = useState(0);
+  const [schedule, setSchedule] = useState<ReturnType<typeof getUpcomingSchedule>>([]);
 
   useEffect(() => {
     const p = loadProgress();
     setProgress(p);
     setTestEligibility(canTakeTest(p.totalXP));
     setTestHistory(getTestHistory());
+    setReviewStats(getReviewStats());
+    setMasteryRate(getMasteryRate());
+    setMasteredCount(getMasteredCount());
+    setDueCount(getDueCount());
+    setSchedule(getUpcomingSchedule());
   }, []);
 
   if (!progress) return null;
@@ -200,6 +218,94 @@ export default function ProfileView() {
             </div>
             <div className="text-sm text-dojo-muted">Overall Accuracy</div>
           </div>
+
+          {/* Spaced Repetition Stats */}
+          {reviewStats && reviewStats.totalReviews > 0 && (
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold text-dojo-text">
+                  Review Statistics
+                </h2>
+                {dueCount > 0 && (
+                  <Link
+                    href="/review"
+                    className="text-xs font-medium text-amber-400 hover:text-amber-300 transition-colors"
+                  >
+                    {dueCount} due &rarr;
+                  </Link>
+                )}
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                <div className="bg-dojo-card border border-dojo-border rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-dojo-accent">
+                    {reviewStats.totalReviews}
+                  </div>
+                  <div className="text-xs text-dojo-muted">Total Reviews</div>
+                </div>
+                <div className="bg-dojo-card border border-dojo-border rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-amber-400">
+                    {reviewStats.currentStreak}
+                  </div>
+                  <div className="text-xs text-dojo-muted">Day Streak</div>
+                </div>
+                <div className="bg-dojo-card border border-dojo-border rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-green-400">
+                    {masteryRate}%
+                  </div>
+                  <div className="text-xs text-dojo-muted">Mastery Rate</div>
+                </div>
+                <div className="bg-dojo-card border border-dojo-border rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-dojo-text">
+                    {masteredCount}/{getAllCurriculumFallacies().length}
+                  </div>
+                  <div className="text-xs text-dojo-muted">
+                    Mastered <span className="text-amber-400">&#9733;</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Longest streak */}
+              {reviewStats.longestStreak > 1 && (
+                <div className="text-xs text-dojo-muted mb-4">
+                  Longest streak: {reviewStats.longestStreak} days
+                </div>
+              )}
+
+              {/* Upcoming schedule */}
+              {schedule.length > 0 && (
+                <div className="bg-dojo-card border border-dojo-border rounded-xl p-4">
+                  <h3 className="text-sm font-medium text-dojo-text mb-3">
+                    Upcoming Reviews
+                  </h3>
+                  <div className="space-y-2">
+                    {schedule.slice(0, 5).map(({ date, fallacyIds }) => {
+                      const isToday = date === new Date().toISOString().split("T")[0];
+                      return (
+                        <div
+                          key={date}
+                          className="flex items-center justify-between text-sm"
+                        >
+                          <span className={isToday ? "text-amber-400 font-medium" : "text-dojo-muted"}>
+                            {isToday
+                              ? "Today"
+                              : new Date(date + "T00:00:00").toLocaleDateString(undefined, {
+                                  weekday: "short",
+                                  month: "short",
+                                  day: "numeric",
+                                })}
+                          </span>
+                          <span className={`text-xs tabular-nums ${isToday ? "text-amber-400" : "text-dojo-muted"}`}>
+                            {fallacyIds.length} fallac{fallacyIds.length === 1 ? "y" : "ies"}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Belt Test History */}
           {testHistory.length > 0 && (
