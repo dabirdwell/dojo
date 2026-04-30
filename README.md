@@ -56,3 +56,6 @@ MIT — see [LICENSE](LICENSE)
 ---
 
 Built by [Humanity & AI, LLC](https://humanityandai.com) · Oklahoma City
+---
+
+<p align="center"><em>Æ</em></p>
