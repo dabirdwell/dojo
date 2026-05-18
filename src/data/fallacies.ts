@@ -5,6 +5,12 @@ export interface FallacyExample {
   explanation: string;
 }
 
+export interface RealWorldExample {
+  quote: string;
+  context: string;
+  whyItWorks: string;
+}
+
 export interface Fallacy {
   id: string;
   name: string;
@@ -12,6 +18,10 @@ export interface Fallacy {
   definition: string;
   belt: "white" | "yellow" | "orange" | "green" | "blue" | "purple" | "brown" | "red" | "black";
   examples: FallacyExample[];
+  mnemonic?: string;
+  plainExplanation?: string;
+  spotIt?: string;
+  realWorldExample?: RealWorldExample;
 }
 
 export const fallacies: Fallacy[] = [
@@ -22,6 +32,19 @@ export const fallacies: Fallacy[] = [
     definition:
       "Attacking the person making the argument rather than the argument itself.",
     belt: "white",
+    mnemonic: "Attack the person, dodge the point",
+    plainExplanation:
+      "Instead of telling you why your idea is wrong, they tell you why YOU are wrong. See the switch? They stopped fighting the argument and started fighting you. The argument never got addressed — you just got insulted.",
+    spotIt:
+      "Did they actually answer what was said, or did they just go after the person who said it?",
+    realWorldExample: {
+      quote:
+        "Don't listen to her climate concerns — she flew on a private jet last year.",
+      context:
+        "Whenever someone wants to dismiss an idea, the fastest move is to point at the person making it. The idea never has to be defeated — it just has to be muddied.",
+      whyItWorks:
+        "Hypocrisy stings, so we feel like we've heard a refutation. But the climate data didn't change because the speaker's behavior was inconsistent. The argument is still standing — we just stopped looking at it.",
+    },
     examples: [
       {
         argument:
@@ -87,6 +110,19 @@ export const fallacies: Fallacy[] = [
     definition:
       "Misrepresenting someone's argument to make it easier to attack.",
     belt: "white",
+    mnemonic: "Build a fake, then knock it down",
+    plainExplanation:
+      "They take what you said, twist it into something dumber or scarier, then 'win' against that. You never said the dumb thing — but now you're stuck defending a position you don't even hold. That's the trick. They picked your fight for you.",
+    spotIt:
+      "Is the version of the argument they're attacking the one I'd actually defend, or a cartoon of it?",
+    realWorldExample: {
+      quote:
+        "'We should require background checks for gun purchases.' 'So you want to take away everyone's guns and leave us defenseless.'",
+      context:
+        "Online debates run on straw men. It's almost never worth your time to argue against the strongest version of someone's view when the weakest version is so much easier to mock.",
+      whyItWorks:
+        "The exaggerated version sounds outrageous, which makes it feel refutation-worthy. And once you're defending against the cartoon version, you've already lost the original point.",
+    },
     examples: [
       {
         argument:
@@ -157,6 +193,18 @@ export const fallacies: Fallacy[] = [
     definition:
       "Claiming something is true because an authority figure says so, especially when they lack relevant expertise.",
     belt: "white",
+    mnemonic: "Famous doesn't mean right",
+    plainExplanation:
+      "Someone with a big name or impressive title says it, so we figure it must be true. But authority in one field doesn't transfer. A Nobel physicist isn't a nutritionist. A famous actor isn't an epidemiologist. The title isn't the evidence — the evidence is.",
+    spotIt:
+      "Is this person actually an expert on THIS specific question — or just an expert at something else?",
+    realWorldExample: {
+      quote: "Dr. Oz recommends it, so it must work.",
+      context:
+        "Marketing runs on this fallacy. The whole industry of celebrity endorsements assumes you'll skip the evidence and trust the famous face.",
+      whyItWorks:
+        "We're wired to trust authority — it's a useful shortcut most of the time. But the brain doesn't naturally separate 'expert in something' from 'expert in this thing,' so we lend credibility we shouldn't.",
+    },
     examples: [
       {
         argument:
@@ -219,6 +267,18 @@ export const fallacies: Fallacy[] = [
     definition:
       "Using emotional manipulation instead of evidence to win an argument.",
     belt: "white",
+    mnemonic: "Make you feel it, skip the thinking",
+    plainExplanation:
+      "They flood the moment with feeling — fear, pity, anger, pride — so you don't notice no actual argument was made. The emotion is real. The reasoning isn't there. If you stripped out the imagery and the music, would anything be left?",
+    spotIt:
+      "If I turn down the emotional volume, is there still a reason here, or just feelings?",
+    realWorldExample: {
+      quote: "Think of the children. How can you possibly oppose this?",
+      context:
+        "Political ads live and die on this one. Imagery of suffering kids, sad veterans, scared families — whatever opens the heart so the question never gets asked.",
+      whyItWorks:
+        "Strong emotion narrows attention. When you're in the feeling, you're not weighing evidence — you're reacting. By the time the feeling fades, you've already taken a side.",
+    },
     examples: [
       {
         argument:
@@ -281,6 +341,18 @@ export const fallacies: Fallacy[] = [
     definition:
       "Presenting only two options when more possibilities exist.",
     belt: "yellow",
+    mnemonic: "Only two doors? Check for a third",
+    plainExplanation:
+      "They give you two choices — usually one good one and one terrible one — and act like nothing else exists. The forced choice is almost always fake. Real life has options. Whenever someone says 'it's THIS or THAT,' your first move is to look for the third thing they didn't mention.",
+    spotIt:
+      "Are these really the only two options, or is the speaker quietly hiding the rest?",
+    realWorldExample: {
+      quote: "You're either with us or against us.",
+      context:
+        "Politicians and salespeople reach for this when they need you to commit fast and stop thinking. The binary feels urgent — but the urgency is manufactured.",
+      whyItWorks:
+        "The brain loves a clean choice. Two options feel decisive; three options feel like work. So when someone hands you a binary, it feels like clarity even though it's actually a constraint.",
+    },
     examples: [
       {
         argument:
@@ -343,6 +415,19 @@ export const fallacies: Fallacy[] = [
     definition:
       "Claiming one event will inevitably lead to a chain of negative consequences without justification.",
     belt: "yellow",
+    mnemonic: "One step, then the world ends",
+    plainExplanation:
+      "Take a small change. Skip the next ten steps. Land on a catastrophe. The slippery slope dresses up speculation as inevitability — but each link in the chain needs evidence, and almost never has it. If you allow A, that doesn't mean Z is coming.",
+    spotIt:
+      "Did they show me each step actually happens, or did they just stack scary words on top of each other?",
+    realWorldExample: {
+      quote:
+        "If we let kids have phones at 12, they'll be addicts at 14, dropouts at 16, and unemployable by 20.",
+      context:
+        "Every parenting argument, every policy debate, every 'where will it end?' op-ed runs this play. The further down the chain, the scarier — and the less evidence required to assert it.",
+      whyItWorks:
+        "The brain anchors on the catastrophic ending and forgets the chain of assumptions it took to get there. By the time you're picturing the disaster, you've stopped asking whether step two actually causes step three.",
+    },
     examples: [
       {
         argument:

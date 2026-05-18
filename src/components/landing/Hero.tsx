@@ -54,7 +54,7 @@ export default function Hero() {
         {/* CTA */}
         <div className="mb-14">
           <Link
-            href="/play/fallacy-flash"
+            href="/learn"
             className="inline-block px-10 py-4 bg-dojo-accent hover:bg-dojo-accent-hover text-white rounded-lg font-semibold transition-colors text-lg shadow-lg shadow-dojo-accent/20"
           >
             Start Training
